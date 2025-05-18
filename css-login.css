@@ -1,0 +1,82 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+    background-color: rgb(250, 246, 246);
+}
+h1{
+    margin:0;
+    padding: 0;
+}
+p{
+    margin:0;
+    padding:0;
+}
+div{
+    margin:0;
+    padding:0;
+}
+.top{
+    position: relative;
+    width:100vw;
+    height: 100px;/*15vh*/
+    background-color: black;
+    color:white;
+}
+.top h1{
+    line-height: 100px;
+}
+.top .b1{
+    position: absolute;
+    right:5vw;
+    bottom:25px;/*3.25vh*/
+    height:50px;/*7.5vh*/
+    line-height: 50px;
+}
+.top .b1 div{
+    display: inline-block;
+    font-size: 10px;
+    padding-left:1vw;
+    padding-right:1vw;
+}
+.top .b1 div:hover{
+    background-color:rgb(90, 90, 90);
+}
+.center{
+    width:100vw;
+    text-align: center;
+}
+.center h1{
+font-size: 20px;
+margin-top: 20px;
+margin-bottom: 50px;
+}
+.center p{
+margin: 5px;
+font-size:12.5px;
+}
+.center input{
+margin: 5px;
+border: none;
+outline: none;
+padding:10px;
+padding-left:50px;
+padding-right:50px;
+    text-align: center;
+}
+.center div{
+    position: relative;
+    left:50%;
+    top:25px;
+    margin-left:-70px;
+    background-color: black;
+    color: white;
+    width:100px;
+    padding: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size:10px;
+}
+.center div:hover{
+    background-color:rgb(90, 90, 90);
+}

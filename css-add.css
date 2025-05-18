@@ -69,39 +69,8 @@ height:77.5vh;
     font-size:20px;
     border-bottom:5px solid black;
 }
-.center  .newss{
-    position: absolute;
-    top:1vh;
-    left:5vw;
-    width:40vw;
-    width:40vw;
-}
-.center .newss2{
-    position: absolute;
-    top:1vh;
-    right:5vw;
-    width:40vw;
-    
-}
-.center  .newss div{
-    display: block;
-    padding-left: 1vw;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
- border-left: 2px solid black;
- 
-}
-
-.center .newss2 div{
-    display: block;
-    padding-left: 1vw;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
- border-left: 2px solid black;
-}
 .center  .block3{
-    position: absolute;
-    bottom: 0;
+
     width:100vw;
     height:50vh;
 }
@@ -138,7 +107,39 @@ height:77.5vh;
     padding-left:1.5vw;
     margin: 0;
 }
+.center .block3 .block1 .schedule3{
 
+    width:100vw;
+    text-align: center;
+    font-weight:500;
+    font-size: 20px;
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    margin: 0;
+    border-bottom:1px solid white;
+}
+.center .block3 .block1 .schedule3:hover{
+background-color: rgb(71, 71, 71);
+}
+.center .block3 .block1 .schedule4{
+position: relative;
+left:1.5vw;
+    width:fit-content;
+    text-align: center;
+    font-weight:500;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid white;
+    margin: 0;
+}
+.center .block3 .block1 .schedule4:hover{
+background-color: rgb(71, 71, 71);
+}
 
 
 .block2 {
@@ -159,4 +160,28 @@ height:77.5vh;
 }
 .block2 p:hover{
  background-color:rgb(90, 90, 90);
+}
+.block2 .add{
+    background-color:rgb(34, 34, 34);
+    font-weight: 600;
+    font-size: 15px;
+}
+select{
+    background-color: black;
+    color:white;
+    border:none;
+    outline: none;
+}
+input{
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+}
+.block2 .send{
+    margin-top: 10vh;
+    width:10vw;
+    height: 10vh;
+    color:white;
+    background-color: black;
 }
