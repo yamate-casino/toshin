@@ -34,7 +34,9 @@ url+="?username="+username+"&num="+num;
             document.cookie = text1;
             document.cookie = text2;
             document.cookie = text3;
-            alert("ログインしました")
+            alert("ログインしました");
+            var url = "index.html?username="+username+"&num="+num+"&status="+"login";
+            location.href = url;
         }else{
             if(count_r < 3){
     count_r++;
@@ -45,6 +47,7 @@ check(username+":"+num);
             alert(json_data[0]);
             console.log("STATUS:"+json_data[0])
             branch = "stop";
+            location.href="login.html";
 }
             
         }

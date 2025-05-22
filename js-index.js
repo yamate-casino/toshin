@@ -1,8 +1,9 @@
 var alert_message = '';
 var url = "";
-
-function load_all(){
- var cookies = document.cookie;
+var username = '';
+var num = '';
+function load_all(e){
+ /*var cookies = document.cookie;
  cookies = cookies.split(";")
  for( var cookie of cookies){
    cookie = cookie.split("=");
@@ -11,7 +12,18 @@ function load_all(){
    if(key == "username"){
       //URL作成処理→関数に渡す
    }
- }
+ }*/
+//cookieかクエリパラメータで対処
+var url =  new  URL(window.location.href);
+var params = url.searchParams;
+if(params.get('status') == "login"){
+   username  = params.get('username');
+   num = params.get('num');
+   document.getElementById("b2").innerHTML = username;  
+   document.getElementById("b2").style.borderBottom = 'solid';
+   document.getElementById("b2").style.borderColor = 'white';
+   
+}
 }
 function load_only(branch){
       fetch(url,{//クエリパラメータで
