@@ -2,11 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>予定追加</title>
+        <title>講座登録</title>
 <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css">
 <link rel="stylesheet" href="css-c_add.css">
     </head>
-    <body>
+    <body onload="load_classes()">
         <div class="top" id="top">
             <h1>Toshin Weekly Schedule</h1>
             <div class="b1" id="b1">
@@ -15,10 +15,10 @@
             </div>
         </div>
                     <div class="block2" id="block2">
-                <p class="add" id="add" onclick='location.href="index.html"'>ホーム</p>
-                <p class="change" id="add" onclick='location.href="add.html"'>予定の追加</p>
-                <p class="past" id="past" onclick='location.href="past.html"'>過去の予定</p>
-                <p class="add2" id="add2" onoclick='location.href="change.html"'>予定の変更</p>
+                <p class="add" id="add" onclick='jump("index")'>ホーム</p>
+                <p class="change" id="add" onclick='jump("add")'>予定の追加</p>
+                <p class="past" id="past" onclick='jump("past")'>過去の予定</p>
+                <p class="add2" id="add2" onclick='jump("change")'>予定の変更</p>
             </div>
         <div class="center" id="center">
            
@@ -32,19 +32,12 @@
                 </div>
                 <div class="c1" id="c1">
                     <p class="schedule" id="schedu">登録</p>
-                    <p class="schedule4" id="schedule2">申請</p>
+                    <p class="schedule4" id="schedule2" onclick="send()">登録</p>
                 </div>
                 <div class="c1" id="c1">
                     <p class="schedule" id="schedu">講座を確認</p>
                     <div class="block4" id="block4">
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p>
-                        <p>ぐんぐん</p> 
+  読込み中
                     </div>
                 </div>
             </div>
@@ -55,7 +48,7 @@
 
             
     
-        <script src="js-index.js"></script>
+        <script src="js-c_add.js"></script>
     </body>
 </html>
 <!--GUアンケートとかHRアンケートとか-->

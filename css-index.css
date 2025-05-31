@@ -27,6 +27,11 @@ div{
 }
 .top h1{
     line-height: 100px;
+    letter-spacing: 2px;
+    padding-left:5vw;
+    font-weight: 700;
+
+    color:black;
 }
 .top .b1{
     position: absolute;
@@ -34,6 +39,8 @@ div{
     bottom:25px;/*3.25vh*/
     height:50px;/*7.5vh*/
     line-height: 50px;
+
+    
 }
 .top .b1 div{
     display: inline-block;
@@ -62,8 +69,8 @@ height:77.5vh;
 }
 .center  p{
 
- padding-bottom: 1vh;
- margin-bottom: 1.5vh;
+ padding-bottom: 2vh;
+ 
      width:max-content;
     font-weight:600;
     font-size:20px;
@@ -71,39 +78,57 @@ height:77.5vh;
 }
 .center  .newss{
     position: absolute;
-    top:1vh;
+    top:2vh;
     left:5vw;
     width:40vw;
     width:40vw;
 }
+.center .newss p{
+    margin-bottom: 2.5vh;
+    letter-spacing: 2px;
+}
 .center .newss2{
     position: absolute;
-    top:1vh;
+    top:2vh;
     right:5vw;
     width:40vw;
     
 }
+.center .newss2 p{
+    margin-bottom: 2.5vh;
+    letter-spacing: 2px;
+}
 .center  .newss div{
     display: block;
     padding-left: 1vw;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
- border-left: 2px solid black;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+ 
+   border-left: 2px solid black;
  
 }
-
+.center .newss .box1{
+ border: none;
+}
+.center .newss2 .box2{
+    border:none;
+} 
+.center .block3 .week{
+    margin-left:5vw;
+    letter-spacing: 2px;
+}
 .center .newss2 div{
     display: block;
     padding-left: 1vw;
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
  border-left: 2px solid black;
 }
 .center  .block3{
     position: absolute;
     bottom: 0;
     width:100vw;
-    height:50vh;
+    height:40vh;/*ここどうにかしたい*/
 }
 .center .bottom{
     position: absolute;
@@ -112,6 +137,8 @@ height:77.5vh;
 .center .block3 .block1 {
     position: relative;
     width: 100vw;
+    padding-top: 0.5vh;
+    padding-bottom: 1.5vh;
     background-color: black;
     color:white;
 }
@@ -120,6 +147,7 @@ height:77.5vh;
     display: inline-block;
     vertical-align: top;
 }
+
 .center .block3 .block1 .schedule{
   
     width:15vw;
