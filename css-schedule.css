@@ -1,0 +1,111 @@
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+}
+h1{
+    margin:0;
+    padding:0;
+}
+p{
+    margin:0;
+    padding: 0;
+}
+.top{
+    margin-left:20vw;
+    margin-top:10vh;
+    width:60vw;
+    height:fit-content;
+    border-bottom:1px solid black;
+
+}
+.bar{
+    width:fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+}
+.bar p{
+    width: fit-content;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+.ca{
+    margin-left:15vw ;
+    width: 70vw;
+    height:fit-content;
+    background-color: lightgray;
+}
+.ca .b1{
+    width:9.7vw;
+    height:9.7vw;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    background-color: lightcyan;
+}
+.b p{
+    width:9.7vw;
+    display: inline-block;
+}
+.u{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.u .shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color: black;
+    opacity: 0.6;
+}
+.u .center{
+    position: absolute;
+    left: 10vw;
+    top:10vh;
+    width:80vw;
+    height:80vh;
+     box-shadow: 0 0 5px 1px gray;
+    background-color: rgb(253, 253, 253);
+    z-index: 100;
+    vertical-align: top;
+    display: inline-block;
+}
+.u .ud{
+    position: relative;
+    left:5vw;
+    top:5vh;
+    font-size: 40px;
+    font-weight: 600;
+    
+    z-index: 100;
+}
+.u .left{
+    position: relative;
+    left:2.5vw;
+    top:10vh;
+    width:40vw;
+    height:60vh;
+}
+.u .right{
+    position: relative;
+    left:50%;
+    top:-50vh;
+    width: 40vw;
+    height:60vh;
+}
+.u small{
+    background-color: black;
+    color:white;
+    padding-left:5vw ;
+    padding-right:5vw ;
+    padding-top:2.5vh;
+    padding-bottom:2.5vh;
+    letter-spacing: 2px;
+}

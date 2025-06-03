@@ -135,3 +135,5 @@ var res = fetch(params,url);
 function jump(text){
    location.href = text+".html"+"?username="+username+"&num="+num;
 }
+
+//ログインしたらキーを発行・一時間のみ有効
