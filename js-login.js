@@ -6,13 +6,11 @@ function send(){
     username = document.getElementById("name").value;
     num = document.getElementById("num").value;
 
-    check(username+":"+num);
+    check(username,num);
 }
 //gas 最後のログインから一定時間で STATUSを変えるようにする
 var count_r = 0;
-function check(data){
-    var username = data.substring(0,data.indexOf(":"));
-    var num = data.substring(parseInt(data.indexOf(":"))+1,);
+function check(username,num){
 console.log("username:"+username);
 console.log("NUM:"+num);
 url+="?username="+username+"&num="+num;
@@ -28,12 +26,10 @@ url+="?username="+username+"&num="+num;
     .then(json_data=>{
         if(json_data[0] == "ok"){
             branch = "stop";
-            var text1 = "username="+username; //;これいるっけ
-            var text2 = "usernum="+num;
-            var text3 = "status="+json_data[0];
+            var text1 = "username="+username+'; Max-Age = 3600'; //;これいるっけ
+            var text2 = "num="+num+'; Max-Age = 3600';
             document.cookie = text1;
             document.cookie = text2;
-            document.cookie = text3;
             alert("ログインしました");
             var url = "index.html?username="+username+"&num="+num+"&status="+"login";
             location.href = url;
