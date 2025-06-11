@@ -2,6 +2,7 @@ var url = "https://script.google.com/macros/s/AKfycbxPgr666297xQkeGKUTlC4So00jWl
 var username = '';
 var num = '';
 function load_classes(){
+    //cookieはめんどいから省略
     var url2 = new URL(window.location.href);
     try{
     url2 = url2.searchParams;
@@ -81,4 +82,7 @@ fetch(url,{
 
 function send(){
 
+}
+function jump(n){
+    location.href = n+'?username='+username+"&num="+num;
 }
