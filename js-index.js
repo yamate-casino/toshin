@@ -5,11 +5,17 @@ var num = '';
 function load_all(e){
    url = new URL(window.location.href);
  var cookies = document.cookie;
+ console.log(cookies);
  cookies = cookies.split(";")
+ console.log(cookies);
  for( var cookie of cookies){
+   console.log(cookie)
    cookie = cookie.split("=");
+   console.log(cookie)
    var key = cookie[0];
    var value = cookie[1];
+   console.log(key)
+   console.log(value)
    if(key == "username"){
       username = value;
    }else if(key == "num"){
