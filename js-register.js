@@ -5,11 +5,9 @@ function regi(){
     ani();
     var name = document.getElementById("name").value;
     var num = document.getElementById("num").value;
-    var tm = document.getElementById("tm").value;
  var data = [{
     "name":name,
-    "num":num,
-    "tm":tm
+    "num":num
  }];
  var  params = {
     "method":"post",
@@ -20,13 +18,15 @@ function regi(){
 
  var res = fetch(url,params);
 setTimeout(()=>{
-check(name,num);
+check(name+":"+num);
 },5000)
 
 }
 var count_r = 0;
-function check(username,num){
+function check(data){
     var url ="https://script.google.com/macros/s/AKfycbxpC6RDPFpslZtzAJf8V-HCkYqB2KhkwkYZasfM_rxLTG-_KbLbx68KYtLgFbyldwtc/exec";//クエリパラメータつけること
+    var username = data.substring(0,data.indexOf(":"));
+    var num = data.substring(parseInt(data.indexOf(":"))+1,);
 console.log("username:"+username);
 console.log("NUM:"+num);
 url+="?username="+username+"&num="+num;
@@ -44,10 +44,12 @@ console.log(url);
         
         if(json_data[0] == "ok"){
             branch = "stop";
-            var text1 = "username="+username+"; Max-Age=3600"; //;これいるっけ
-            var text2 = "usernum="+num+"; Max-Age=3600";
+            var text1 = "username="+username; //;これいるっけ
+            var text2 = "usernum="+num;
+            var text3 = "status="+json_data[0];
             document.cookie = text1;
             document.cookie = text2;
+            document.cookie = text3;
             console.log("STATUS:"+json_data[0])
             alert("登録が完了しました");
             var url = "index.html?username="+username+"&num="+num+"&status="+"login";

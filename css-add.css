@@ -198,8 +198,15 @@ input{
     line-height:5vh;
     background-color: black;
     color:white;
+    outline: auto;
+    outline-width: 1px;
+    outline-color: white;
 }
 .block5:hover{
     background-color: lightgray;
+    color:black;
+}
+
+h1{
     color:black;
 }

@@ -1,35 +1,20 @@
 var alert_message = '';
-var url = "";
+var url1 = "https://script.google.com/macros/s/AKfycbz4hdeZuRQlKZ_feVpm7eM0fCLODx5D1_KQi5AacpknuoUIcRaU25pPnwHdqozC8Prr/exec";
 var username = '';
 var num = '';
 function load_all(e){
-   url = new URL(window.location.href);
- var cookies = document.cookie;
- console.log(cookies);
+ /*var cookies = document.cookie;
  cookies = cookies.split(";")
- console.log(cookies);
  for( var cookie of cookies){
-   console.log(cookie)
    cookie = cookie.split("=");
-   console.log(cookie)
    var key = cookie[0];
    var value = cookie[1];
-   console.log(key)
-   console.log(value)
    if(key == "username"){
-      username = value;
-   }else if(key == "num"){
-      num = value;
+      //URL作成処理→関数に渡す
    }
- }
- if(username.length >0 && num.length > 0){
-document.getElementById("b2").innerHTML = username;
-document.getElementById("b2").style.borderBottom = 'solid';
-document.getElementById("b2").style.borderColor = 'white';
-load_only("schedule_now");
-url = url+"?username="+username+"&num="+num;
- }else{
+ }*/
 //cookieかクエリパラメータで対処
+url =  new  URL(window.location.href);
 var params = url.searchParams;
     try{
     username = params.get("username");
@@ -50,9 +35,11 @@ var params = url.searchParams;
         console.log("パラメータエラー");
         return;
     }
-   }
 }
 function load_only(branch){
+   if(branch == "schedule_now"){
+      url = url1+"?username="+username+"&num="+num;
+   }
       fetch(url,{//クエリパラメータで
       "method":"GET",
       "mode":"cors"
@@ -64,6 +51,7 @@ function load_only(branch){
    })
    .then(jsondata =>{
       console.log("datas_get!!");
+      console.log(jsondata);
          if(branch == "news"){
    load_news(jsondata);
    }else if(branch == "schedule_now"){
@@ -79,32 +67,39 @@ function load_only(branch){
 
 }
 function load_schedule_now(json_data){
+   
+      var text = "a";   
       
-     var dates = json_data["date"];
-     var c_schedules = json_data["c_schedule"];
-     var o_schedules = json_data["o_schedules"];
-     var others = json_data["others"]
-     var times = json_data["time"];
-    var count = 0;
-    for(var date of dates){
-      var time = times[count]
-      var text1 = '<div class="block1" id="block1"><div class="c1" id="c1"><p class="schedule" id="schedu">日付</p><p class="schedule2" id="schedule2">'+date+'</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p><div class="box4" id="box4"></div></div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><div class="box5= id="box5"></div></div><div class="c1" id="c1"><p class="schedule" id="schedu">その他予定</p><div class="box6" id="box6"></div></div><div class="c1" id="c1"><p class="schedule" id="schedu">来校予定</p><p class="schedule2" id="schedule2">'+time+'</p></div></div>';
-      document.getElementById("box3").insertAdjacentElement("beforeend",text1);
-      //insertAdjaccentで挿入されたidに入力できないかもしれん
-      for(var a of c_schedules[date]){
-         var text2 = '<p class="schedule2" id="schedule2">'+a+'</p>';
-         document.getElementById("box4").insertAdjacentElement("beforeend",text2);
+      for(var i = 1; i<=7; i++){
+         console.log(text+i);
+         var datas = json_data[0][text+i];
+         console.log("datas : "+datas);
+         var script = '<div class="block1" id="block1"><div class="c1" id="c1"><p class="schedule" id="schedu">日付</p><p class="schedule2" id="schedule2">6/6</p></div>';//本来はここも反復処理
+
+         script+='<div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p><div class="box4" id="box4">';
+         for(var j of datas[0]["juko"]){
+            if(j == "none"){
+               j = "なし   "
+            }
+            script+='<p class="schedule2" id="schedule2">'+j+'</p>'
+         }
+         script+='</div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><div class="box5= id="box5">';
+         for(var j of datas[0]["kmas"]){
+                        if(j == "none"){
+               j = "なし   "
+            }
+            script+='<p class="schedule2" id="schedule2">'+j+'</p>'
+         }
+         script+='</div></div><div class="c1" id="c1"><p class="schedule" id="schedu">その他予定</p><div class="box6" id="box6">';
+         for(var j of datas[0]["other"]){
+                        if(j == "none"){
+               j = "なし   "
+            }
+            script+='<p class="schedule2" id="schedule2">'+j+'</p>'
+         }
+         script+='</div></div><div class="c1" id="c1"><p class="schedule" id="schedu">来校予定</p><p class="schedule2" id="schedule2">'+datas[0]["time"]+'</p></div></div>';
+         document.getElementById("box3").insertAdjacentHTML("beforeend",script);
       }
-      for(var a of o_schedules[date]){
-         var text2 = '<p class="schedule2" id="schedule2">'+a+'</p>';
-         document.getElementById("box5").insertAdjacentElement("beforeend",text2);
-      }
-      for(var a of others[date]){
-         var text2 = '<p class="schedule2" id="schedule2">'+a+'</p>';
-         document.getElementById("box6").insertAdjacentElement("beforeend",text2);
-      }
-   count++; 
-   }
    load_only("news");
 }
 function load_news(json_data){
