@@ -69,7 +69,7 @@ function load_only(branch){
 function load_schedule_now(json_data){
    
       var text = "a";   
-      
+      document.getElementById("box3").innerHTML = "";
       for(var i = 1; i<=7; i++){
          console.log(text+i);
          var datas = json_data[0][text+i];
@@ -78,23 +78,17 @@ function load_schedule_now(json_data){
 
          script+='<div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p><div class="box4" id="box4">';
          for(var j of datas[0]["juko"]){
-            if(j == "none"){
-               j = "なし   "
-            }
+
             script+='<p class="schedule2" id="schedule2">'+j+'</p>'
          }
-         script+='</div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><div class="box5= id="box5">';
+         script+='</div></div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><div class="box5= id="box5">';
          for(var j of datas[0]["kmas"]){
-                        if(j == "none"){
-               j = "なし   "
-            }
+
             script+='<p class="schedule2" id="schedule2">'+j+'</p>'
          }
          script+='</div></div><div class="c1" id="c1"><p class="schedule" id="schedu">その他予定</p><div class="box6" id="box6">';
          for(var j of datas[0]["other"]){
-                        if(j == "none"){
-               j = "なし   "
-            }
+
             script+='<p class="schedule2" id="schedule2">'+j+'</p>'
          }
          script+='</div></div><div class="c1" id="c1"><p class="schedule" id="schedu">来校予定</p><p class="schedule2" id="schedule2">'+datas[0]["time"]+'</p></div></div>';

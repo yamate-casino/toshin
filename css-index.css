@@ -141,10 +141,14 @@ height:77.5vh;
     padding-bottom: 1.5vh;
     background-color: black;
     color:white;
+    vertical-align: top;
 }
 .center .block3 .block1 .c1{
     width:max-content;
     display: inline-block;
+    vertical-align: top;
+}
+.center .block3 .block1 .c1 div{
     vertical-align: top;
 }
 

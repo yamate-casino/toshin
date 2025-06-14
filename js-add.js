@@ -165,7 +165,7 @@ if(time.length == 0){
   time = "校舎"+time;
 }
 datas[0][d_n][0]["other"].push(sonota);
-datas[0][d_n][0]["kmas"].push("none");
+datas[0][d_n][0]["kmas"].push("なし");
 datas[0][d_n][0]["time"].push(time);
 for(var a of js){
     console.log(a.label);
