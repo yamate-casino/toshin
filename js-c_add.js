@@ -44,8 +44,11 @@ function data_get(branch,c_name2){
       if(branch == "all"){
         document.getElementById("block4").innerHTML = "";
         
-        if(json[0][1].length == 1){
-          var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p><p class="schedule5" id='+"\""+json[0]+"\""+' onclick=del('+"\""+json[0]+"\""+')>削除</p></div>'
+        if(json[0][1] == '登録されている講座はありません'){
+var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
+          document.getElementById("block4").insertAdjacentHTML("beforeend",text);
+        }else if(json[0][1].length == 1 ){
+          var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p><p class="schedule5" id='+"\""+c+"\""+' onclick=del('+"\""+c+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
         }else{
          for(var c of json[0]){

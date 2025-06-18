@@ -39,6 +39,8 @@ var params = url.searchParams;
 function load_only(branch){
    if(branch == "schedule_now"){
       url = url1+"?username="+username+"&num="+num;
+   }else if(branch == "news"){
+      url = "https://script.google.com/macros/s/AKfycbzjeZvVl3rbt4aJkeJ-wKIJLNghhXN2m84TOYZ8JsFaoYkYa4LLET_rl-iaw5FTFOTe/exec";
    }
       fetch(url,{//クエリパラメータで
       "method":"GET",
@@ -97,32 +99,13 @@ function load_schedule_now(json_data){
    load_only("news");
 }
 function load_news(json_data){
-     var news_e = json_data[0];
-     var news_i = json_data[1];
-     if(news_e.length > 3){
-      for(var i = 0; i<3; i++){
-var text1 = '<div class="block1" id="block1">'+news_e[i]+'/div>';
-document.getElementById("box1").insertAdjacentElement("beforeend",text1);
-      }
-     }else{
-      for(var a of news_e){
-         var text1 = '<div class="block1" id="block1">'+a+'/div>';
-document.getElementById("box1").insertAdjacentElement("beforeend",text1);
-      }
-     }
-     if(news_i > 3){
-      for(var i=0; i<3; i++){
-         var text1 = '<div class="block1" id="block1">'+news_i[i]+'/div>';
-      document.getElementById("box2").insertAdjacentElement("beforeend",text1)
-      }
-     }else{
-     for(var a of news_i){
-         var text1 = '<div class="block1" id="block1">'+a+'/div>';
-document.getElementById("box2").insertAdjacentElement("beforeend",text1);
-   
-     }
-     }
-
+for(var a of json_data){
+   document.getElementById("block1").innerHTML = "";
+   var text1 = '<div class="block1" id="block1">'+a+'</div>';
+document.getElementById("box1").insertAdjacentHTML("beforeend",text1);
+}
+text1 = '<div class="block11" id="block1" onclick=jump("news_e")>もっと詳しく→ </div>'
+document.getElementById("box1").insertAdjacentHTML("beforeend",text1);
 }
 function alert_to_gas(text){
 var data = [{

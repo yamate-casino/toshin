@@ -89,6 +89,20 @@ height:77.5vh;
     background-color: black;
     color:white;
 }
+.center .block3 .block11 {
+    position: relative;
+    width: 100vw;
+    background-color: rgb(250, 246, 246);
+    color:black;
+    border:1px solid black;
+}
+.center .block3 .block11 input{
+    background-color:rgb(250, 246, 246);
+    color:black;
+}
+.center .block3 .block11 p{
+    border-color:rgb(250, 246, 246);
+}
 .center .block3 .block1 .c1{
     width:max-content;
     display: inline-block;
@@ -143,6 +157,67 @@ left:1.5vw;
     margin: 0;
 }
 .center .block3 .block1 .schedule4:hover{
+background-color: rgb(71, 71, 71);
+}
+
+.center .block3 .block11 .c1{
+    width:max-content;
+    display: inline-block;
+    vertical-align: top;
+    background-color: rgb(250, 246, 246);
+}
+.center .block3 .block11 .schedule{
+  
+    width:15vw;
+    font-weight:500;
+    font-size: 10px;
+    padding: 0;
+    padding-top:1vh;
+    padding-left:1vw;
+    background-color: rgb(250, 246, 246);
+}
+.center .block3 .block11 .schedule2{
+
+    width:15vw;
+    font-weight:500;
+    font-size: 15px;
+    padding: 0;
+    padding-left:1.5vw;
+    margin: 0;
+}
+.center .block3 .block11 .schedule3{
+
+    width:100vw;
+    text-align: center;
+    font-weight:500;
+    font-size: 20px;
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    margin: 0;
+    border-bottom:1px solid rgb(250, 246, 246);
+    background-color: rgb(250, 246, 246);
+}
+.center .block3 .block11 .schedule3:hover{
+background-color: rgb(71, 71, 71);
+}
+.center .block3 .block11 .schedule4{
+position: relative;
+left:1.5vw;
+    width:fit-content;
+    text-align: center;
+    font-weight:500;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid rgb(250, 246, 246);
+    margin: 0;
+    background-color:rgb(250, 246, 246);
+}
+.center .block3 .block11 .schedule4:hover{
 background-color: rgb(71, 71, 71);
 }
 
