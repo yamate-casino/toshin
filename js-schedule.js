@@ -55,6 +55,8 @@ function pup(num){
     var text = '';
     
     count++;
+        document.getElementById("ca").style.display = "none";
+    document.getElementById("ca").style.opacity = "0";
     document.getElementById("u").style.display = "block";
     document.getElementById("u").style.opacity = "1";
     document.getElementById("ud").innerHTML = num+"日";
@@ -84,7 +86,8 @@ function pup(num){
 
 var count_add = 0;
 function clos(){
-    
+    document.getElementById("ca").style.display = "block";
+    document.getElementById("ca").style.opacity = "1";
 document.getElementById("u").style.display = "none";
 document.getElementById("u").style.opacity = "0";
 for(var i = 1; i <= count_add; i++){

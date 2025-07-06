@@ -25,10 +25,11 @@ data_get("all");
         console.log("パラメータエラー");
         return;
     }
-   
+
 }
 var count_r = 0;
 function data_get(branch,c_name2){
+    
     var url2 = url+"&branch="+branch;
     fetch(url2,{
         "method":"get",
@@ -44,24 +45,24 @@ function data_get(branch,c_name2){
       if(branch == "all"){
         document.getElementById("block4").innerHTML = "";
         
-        if(json[0][1] == '登録されている講座はありません'){
+        if(json[0] == '登録されている講座はありません'){
 var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
-        }else if(json[0][1].length == 1 ){
-          var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p><p class="schedule5" id='+"\""+c+"\""+' onclick=del('+"\""+c+"\""+')>削除</p></div>'
+        }else if(json.length == 1 ){
+          var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p><p class="schedule5" id='+"\""+json[0]+"\""+' onclick=del('+"\""+json[0]+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
         }else{
-         for(var c of json[0]){
+         for(var c of json){
           var text = '<div class="block5" id="block5"><p class="ti">'+c+'</p><p class="schedule5" id='+"\""+c+"\""+' onclick=del('+"\""+c+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
          }
         }  
          load_status = "yes";
       }else if(branch == "new"){
-        var last = parseInt(json[0].length)-1;
+        var last = parseInt(json.length)-1;
         console.log("last"+last)
-        json = json[0];
         if(c_name2 == json[last]){
+            document.getElementById("block5").remove();
           var text = '<div class="block5" id="block5"><p class="ti">'+c_name2+'</p><p class="schedule5" id='+"\""+c_name2+"\""+'onclick=del('+"\""+c_name2+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
           document.getElementById("schedule2").innerHTML = "登録";
@@ -146,6 +147,7 @@ function post_data(c_name,branch){
         "Content-Type":"application/json",
         "body":JSON.stringify(data)
     }
+    
     fetch(url,params);
 }
 

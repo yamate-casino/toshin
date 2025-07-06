@@ -101,6 +101,8 @@ text1 += '</select>';
 document.getElementById("block6").innerHTML = "チェック中";
 data_get(username,num,"check");
 }
+
+
 var count = 0;
 function data_get(username,num,branch){
 if(branch == "get_classes"){
@@ -122,7 +124,7 @@ fetch(u,{
     }
 })
 .then(json =>{
-    console.log(json);
+    console.log("json:"+json);
     if(branch == "get_classes"){
         get_classes(json);
     }else if(branch == "check"){
@@ -187,7 +189,7 @@ var params = {
     "body":JSON.stringify(datas)
 }
 document.getElementById("block5").innerHTML = "登録中";
-fetch(url2,params);
+fetch(url22,params);
 setTimeout(()=>{
     data_get(username,num,"check_add");
 },2000);
