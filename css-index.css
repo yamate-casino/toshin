@@ -39,24 +39,42 @@ div{
     bottom:25px;/*3.25vh*/
     height:50px;/*7.5vh*/
     line-height: 50px;
-
     
 }
 .top .b1 div{
     display: inline-block;
     font-size: 10px;
+    text-align: center;
     padding-left:1vw;
     padding-right:1vw;
 }
 .top .b1 div:hover{
     background-color:rgb(90, 90, 90);
 }
+.top .b2{
+    color:white;
+}
+
+.log{
+    position: relative;
+    width:100vw;
+    height: 77.5vh;
+    display: none;
+    text-align: center;
+}
+.log h1{
+    font-weight: 400;
+    font-size:20px;
+    letter-spacing: 2px;
+}
+
+
 
 .center {
     position: relative;
 width:100vw;
 height:77.5vh;
-
+display: none;
 }
 .center .block11{
     font-weight: 600;
@@ -186,7 +204,7 @@ height:77.5vh;
     line-height: 50px;/*7.5vh*/
     font-size: 10px;
     text-align: center;
-    
+    display: inline-block;
     color: white;
 }
 .block2 p:hover{

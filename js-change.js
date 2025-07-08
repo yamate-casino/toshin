@@ -34,7 +34,11 @@ var num = para.get("num");
                 data_write();
             }
     })
+    .catch(err =>{
+        console.log(err);
+    })
 }
+
 
 function data_write(){
     var text = "a";
@@ -63,7 +67,7 @@ function data_write(){
         }else{
             script+='<input type="checkbox" value=""><input type="number" value="" placeholder="時間(例1700・0900)"></div></div>';
         }
-        script2 = '<div class="block1" id="block1"><div class="c1" id="c1"><p class="schedule" id="schedu">予定変更</p><p class="schedule4" onclick="send("'+i+'")">申請</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">日付</p><p class="schedule2" id="schedule2">5/18</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p><select name="" id='+"\""+"juko"+i+"\""+' multiple>';
+        script2 = '<div class="block1" id="block1"><div class="c1" id="c1"><p class="schedule" id="schedu">予定変更</p><p class="schedule4" onclick="send('+i+')">申請</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">日付</p><p class="schedule2" id="schedule2">5/18</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p><select name="" id='+"\""+"juko"+i+"\""+' multiple>';
           
          for(var j2 of json2){
             script2 += '<option value='+"\""+j2+"\""+'>'+j2+'</option>';
@@ -71,7 +75,7 @@ function data_write(){
             script2+= '</select></div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><select name="" id="komasu" multiple><option value="ぐんぐん">ぐんぐん</option></select></div><div class="c1" id="c1"><p class="schedule" id="schedu">その他予定</p><input type="text" id="sonot'+i+'"value="" placeholder="その他予定"></input></div><div class="c1" id="c1"><p class="schedule" id="schedu">来校予定(校舎ならチェック)</p>';
         //<input type="checkbox" value=""><input type="number" value="'+datas[0]["time"][0]+'" placeholder="時間(例1700・0900)"></div><div class="c1" id="c1"><p class="schedule" id="schedu">変更申請</p><p class="schedule4" onclick="send("b'+i+'")">申請</p></div></div>';                        
 
-            script2+='<input type="checkbox" id-"cbox'+p+'"value=""><input type="number" value="" id-"t'+p+'" placeholder="時間(例1700・0900)"></div></div>';
+            script2+='<input type="checkbox" id="cbox'+i+'"value=""><input type="number" value="" id="t'+i+'" placeholder="時間(例1700・0900)"></div></div>';//iのところは元々p 7/6
         document.getElementById("box").insertAdjacentHTML("beforeend",script);
         document.getElementById("box").insertAdjacentHTML("beforeend",script2);
     }
@@ -85,21 +89,23 @@ var datas = [{"a1":[{"pre":[{"juko":[],"kmas":[],"other":[],"time":[]}],"new":[{
 var id_name = "juko"+p
 var js = document.getElementById(id_name).selectedOptions;
 for(var j of js){
-datas[0]["a"+p][0]["new"][0]["juko"].push(j);
+    console.log(j.label);
+datas[0]["a"+p][0]["new"][0]["juko"].push(j.label);
 }
-datas[0]["a"+p][0]["new"][0]["kmas"].push("なし"); //今後改築
-datas[0]["a"+p][0]["new"][0]["other"].push(document.getElementById("sonot"+p).value);
+//datas[0]["a"+p][0]["new"][0]["kmas"].push("なし"); //今後改築
+var o_d = document.getElementById("sonot"+p).value;
+datas[0]["a"+p][0]["new"][0]["other"].push(o_d);    
 if(document.getElementById("cbox"+p).checked == true && (document.getElementById("t"+p).value).length > 0){
 datas[0]["a"+p][0]["new"][0]["time"].push("校舎"+document.getElementById("t"+p).value);
-}else{
+}else if((document.getElementById("t"+p).value).length > 0){
     datas[0]["a"+p][0]["new"][0]["time"].push("自宅"+document.getElementById("t"+p).value);
 }
-for(var j3 of json["a"+p][0]["juko"]){
+for(var j3 of json[0]["a"+p][0]["juko"]){
     datas[0]["a"+p][0]["pre"][0]["juko"].push(j3);
 }
     datas[0]["a"+p][0]["pre"][0]["kmas"].push("なし");
-    datas[0]["a"+p][0]["pre"][0]["other"].push(json["a"+p][0]["other"]);//最後わんちゃん[0]いるかも
-    datas[0]["a"+p][0]["pre"][0]["time"].push(json["a"+p][0]["time"]);//最後わんちゃん[0]いるかも
+    datas[0]["a"+p][0]["pre"][0]["other"].push(json[0]["a"+p][0]["other"][0]);//最後わんちゃん[0]いるかも
+    datas[0]["a"+p][0]["pre"][0]["time"].push(json[0]["a"+p][0]["time"][0]);//最後わんちゃん[0]いるかも
 
 console.log(datas);
 datas = JSON.stringify(datas);
