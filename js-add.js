@@ -200,6 +200,6 @@ setTimeout(()=>{
 }
 //曜日をどうするか問題
 function jump(param){
-    location.href = param+".html?username= "+username+"$num="+num;
+    location.href = param+".html?username="+username+"$num="+num;
 }
 
