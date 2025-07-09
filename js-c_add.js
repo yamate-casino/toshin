@@ -16,11 +16,13 @@ function load_classes(){
 data_get("all");
     }else{
         alert("ログインしてください");
+        location.href = "login.html";
         return;
     }
     
     }catch(e){
         alert("ログインしてください");
+        location.href = "login.html";
         console.log(e);
         console.log("パラメータエラー");
         return;
@@ -62,7 +64,9 @@ var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
         var last = parseInt(json.length)-1;
         console.log("last"+last)
         if(c_name2 == json[last]){
+            if(last == 0){
             document.getElementById("block5").remove();
+            }
           var text = '<div class="block5" id="block5"><p class="ti">'+c_name2+'</p><p class="schedule5" id='+"\""+c_name2+"\""+'onclick=del('+"\""+c_name2+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
           document.getElementById("schedule2").innerHTML = "登録";
