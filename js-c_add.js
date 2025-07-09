@@ -177,6 +177,22 @@ $("#"+id).animate({
     count = 0;
     }
 })
+}else if(branch == "d"){
+    var count = 0;
+var r = setInterval(()=>{
+count++;
+if(count ==1){
+ document.getElementById("small").innerHTML = "読み込み中.";
+}else if(count == 2){
+ document.getElementById("small").innerHTML = "読み込み中..";
+}else if(count == 3){
+ document.getElementById("small").innerHTML= "読み込み中...";
+}else if(count == 4){
+    document.getElementById("small").innerHTML = "読み込み中";
+    count = 0
+}
+},500)
+
 }else{
     clearInterval(r);
     document.getElementById(id).style.color = "white";
