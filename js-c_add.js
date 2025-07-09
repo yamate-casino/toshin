@@ -48,7 +48,7 @@ function data_get(branch,c_name2){
         document.getElementById("block4").innerHTML = "";
         
         if(json[0] == '登録されている講座はありません'){
-var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
+var text = '<div class="block5" id="block55"><p class="ti">'+json[0]+'</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
         }else if(json.length == 1 ){
           var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p><p class="schedule5" id='+"\""+json[0]+"\""+' onclick=del('+"\""+json[0]+"\""+')>削除</p></div>'
@@ -64,12 +64,15 @@ var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
         var last = parseInt(json.length)-1;
         console.log("last"+last)
         if(c_name2 == json[last]){
-            if(last == 0){
-            document.getElementById("block5").remove();
+            try{
+            document.getElementById("block55").remove();
+            }catch(e){
+                
             }
           var text = '<div class="block5" id="block5"><p class="ti">'+c_name2+'</p><p class="schedule5" id='+"\""+c_name2+"\""+'onclick=del('+"\""+c_name2+"\""+')>削除</p></div>'
           document.getElementById("block4").insertAdjacentHTML("beforeend",text);
           document.getElementById("schedule2").innerHTML = "登録";
+            ani("schedule2","s");
           alert("登録できました");
         }else{
           count_r++;
@@ -80,6 +83,7 @@ var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
           }else{
             alert("登録できませんでした");
             document.getElementById("schedule2").innerHTML = "登録";
+              ani("schedule2","s");
             count_r = 0;
           }
         }
@@ -91,6 +95,7 @@ var text = '<div class="block5" id="block5"><p class="ti">'+json[0]+'</p></div>'
           alert("エラー");
           console.log("削除失敗");
           document.getElementById(c_name).innerHTML = "削除";
+             ani(c_name,"s");
           return;
          }
         }
@@ -110,6 +115,7 @@ function send(){
     if(c_name.length > 0){
     post_data(c_name,"add");
     document.getElementById("schedule2").innerHTML = "登録中";
+    ani("schedule","nf");
     setTimeout(()=>{data_get("new",c_name);},2000);
     }else{
         alert("空欄です");
@@ -127,6 +133,7 @@ function send(){
 function del(c_name){
     if(load_status == "yes"){
 document.getElementById(c_name).innerHTML = "削除中";//id名が日本語だからうまく動かない可能性大URI化のほうがよきかも
+ ani(c_name,"nf");
  post_data(c_name,"del");
  setTimeout(()=>{
 data_get("del",c_name);
@@ -154,7 +161,27 @@ function post_data(c_name,branch){
     
     fetch(url,params);
 }
-
+var count = 0;
+function ani(id,branch){
+if(branch == "nf"){
+var r = setInterval(()=>{
+    count++;
+    if(count == 1){
+$("#"+id).animate({
+  "opacity":0
+ },500);
+    }else{
+$("#"+id).animate({
+  "opacity":1
+ },500);
+    count = 0;
+    }
+})
+}else{
+    clearInterval(r);
+    document.getElementById(id).style.opacity = 1;
+}
+}
 function jump(n){
     location.href = n+".html?username="+username+"&num="+num;
 }
