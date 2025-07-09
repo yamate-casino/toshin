@@ -115,7 +115,7 @@ function send(){
     if(c_name.length > 0){
     post_data(c_name,"add");
     document.getElementById("schedule2").innerHTML = "登録中";
-    ani("schedule","nf");
+    ani("schedule2","nf");
     setTimeout(()=>{data_get("new",c_name);},2000);
     }else{
         alert("空欄です");
@@ -168,18 +168,18 @@ var r = setInterval(()=>{
     count++;
     if(count == 1){
 $("#"+id).animate({
-  "opacity":0
+  "color":"black"
  },500);
     }else{
 $("#"+id).animate({
-  "opacity":1
+  "color":"white"
  },500);
     count = 0;
     }
 })
 }else{
     clearInterval(r);
-    document.getElementById(id).style.opacity = 1;
+    document.getElementById(id).style.color = "white";
 }
 }
 function jump(n){
