@@ -63,6 +63,10 @@ function load_classes(){
         return;
     }
 }
+
+var c_nums = "";
+var class_names = [];
+var class_status = [];
 function get_classes(json){
     var time = new Date();
     var month = time.getMonth()+1;
@@ -72,9 +76,19 @@ function get_classes(json){
     var last_d = time.getDate();   
  
     
- json = json[0];
- console.log(json);
+ //json = json[0];
+ console.log("get_classes:"+json);
+var n_c = 1; //現在の受講コマ数
 
+//現在の授業コマを記録するJSONを作る
+c_nums = "[{";
+for(var c of json){
+    class_names.push(c);
+    class_status.push(false);
+    c_nums+='"'+c+'":[],';
+}
+c_nums = c_nums.substring(0,c_nums.length-1)+"}]";
+c_nums = JSON.parse(c_nums);
 for(var d = 1; d<=7; d++){
     if(date > last_d){
         month+=1;
@@ -83,20 +97,26 @@ for(var d = 1; d<=7; d++){
  var day_data = month+"/"+date;
 
  var text1 = '<select name="" id='+"\""+"juko"+d+"\""+' multiple>'
- if(json[1].length == 1){
-  text1 += '<option value='+"\""+json+"\""+'>'+json+'</option>';
+ if(json == "登録されている講座はありません"){
+    alert("講座を登録してください");
+    document.getElementById("block6").innerHTML = "講座を登録してください";
+    return;
  }else if(json == "エラー"){
     alert("エラー");
  }else{
+    
  for(var c of json){
-    text1 += '<option value='+"\""+c+"\""+'>'+c+'</option>';
- }
+    text1 += '<option value="'+c+"第"+n_c+'講" id="'+c+":"+d+'" onclick=c_change("'+c+":"+d+'")>'+c+"第"+n_c+"講"+'</option>';
+    c_nums[0][c].push(n_c);
+}
 }
 text1 += '</select>';
 
  var text = '<div class="block1" id="block1"><div class="c1" id="c1"><p class="schedule" id="schedu">日付</p><p class="schedule2" id="schedule2">'+day_data+'</p></div><div class="c1" id="c1"><p class="schedule" id="schedu">受講予定</p>'+text1+'</div><div class="c1" id="c1"><p class="schedule" id="schedu">高マス予定</p><select name="" id="komasu" multiple><option value="ぐんぐん">ぐんぐん</option></select></div><div class="c1" id="c1"><p class="schedule" id="schedu">その他予定</p><input type="text" id="sonot'+d+'"value="" placeholder="その他予定"></input></div><div class="c1" id="c1"><p class="schedule" id="schedu">来校予定(校舎ならチェック)</p><input type="checkbox" id="checkb'+d+'"value="" checked></input><input type="number"  id="number'+d+'"value="" placeholder="時間(例1700・0900)"></input></div></div>';
  document.getElementById("block4").insertAdjacentHTML("beforeend",text);
  date++;
+
+ console.log(c_nums);
 }
 document.getElementById("block6").innerHTML = "チェック中";
 data_get(username,num,"check");
@@ -136,8 +156,10 @@ fetch(u,{
 })
 .catch(e =>{
     console.log(e);
-    document.getElementById("block6").innerHTML = "読込みエラー";
     alert("読込みエラー");
+        
+        document.getElementById("block6").innerHTML = "読込みエラー";
+    
 });
 }
 
@@ -199,7 +221,46 @@ setTimeout(()=>{
     }
 }
 //曜日をどうするか問題
+
 function jump(param){
     location.href = param+".html?username="+username+"$num="+num;
 }
 
+//選択ボックスクリック時に発火→現在の工数を変更する
+function c_change(data){
+    //総講座数をどのように判別するか 
+    alert(class_status);
+    var c_name = data.substring(0,data.indexOf(":"));
+    var id_num = data.substring(data.indexOf(":")+1,);
+    var count = -1;
+    for(var a of class_names){
+        count++;
+        if(c_name == a){
+            var selectEle = document.getElementById("juko"+id_num).options[count].selected;
+        }
+    }
+    
+    for(var i = parseInt(id_num)+1; i <= 7; i++){
+        //選択状態か否かで分岐
+        if(selectEle == false && class_status[count] == true){
+            c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] -1;
+            
+        }else if(selectEle == true && class_status[count] == false){
+            c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] +1;
+            
+        }else{
+            alert(selectEle+":"+class_status[count]);
+        }
+        console.log("write" + c_nums[0][c_name][i-1])
+        document.getElementById(c_name+":"+i).innerHTML = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+        document.getElementById(c_name+":"+i).value = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+        
+    }
+        if(selectEle == false && class_status[count] == true){
+            class_status[count] = false;
+        }else if(selectEle == true && class_status[count] == false){
+            class_status[count] = true;
+            
+        }
+}
+//発火の番号は定数化して、valueから工数の変更をする

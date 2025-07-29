@@ -168,11 +168,11 @@ var r = setInterval(()=>{
     count++;
     if(count == 1){
 $("#"+id).animate({
-  "color":"black"
+  "backgroundColor":"#5555"
  },500);
     }else{
 $("#"+id).animate({
-  "color":"white"
+  "backgroundColor":"#0000"
  },500);
     count = 0;
     }
