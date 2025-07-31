@@ -84,7 +84,7 @@ var n_c = 1; //現在の受講コマ数
 c_nums = "[{";
 for(var c of json){
     class_names.push(c);
-    class_status.push(false);
+    class_status.push("false");
     c_nums+='"'+c+'":[],';
 }
 c_nums = c_nums.substring(0,c_nums.length-1)+"}]";
@@ -229,38 +229,59 @@ function jump(param){
 //選択ボックスクリック時に発火→現在の工数を変更する
 function c_change(data){
     //総講座数をどのように判別するか 
-    alert(class_status);
+    //console.log(class_status);
     var c_name = data.substring(0,data.indexOf(":"));
     var id_num = data.substring(data.indexOf(":")+1,);
-    var count = -1;
+    var count = -1  ;
     for(var a of class_names){
         count++;
-        if(c_name == a){
+        if(c_name == a){    
             var selectEle = document.getElementById("juko"+id_num).options[count].selected;
         }
     }
-    
+    console.log(selectEle);
+        if(selectEle == true && c_nums[0][c_name][id_num-1] == c_nums[0][c_name][parseInt(id_num)]){
+            for(var i = parseInt(id_num)+1; i <= 7 ; i++){ 
+                c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] + 1 
+                document.getElementById(c_name+":"+i).innerHTML = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+                document.getElementById(c_name+":"+i).value = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+            }
+        }else if(selectEle == false && c_nums[0][c_name][id_num-1] != c_nums[0][c_name][parseInt(id_num)]){
+            for(var i = parseInt(id_num)+1; i <= 7 ; i++){ 
+                c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] - 1;
+                document.getElementById(c_name+":"+i).innerHTML = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+                document.getElementById(c_name+":"+i).value = c_name+"第"+c_nums[0][c_name][i-1]+"講";
+            }
+        }
+//iの定義が怪しい
+        //前後の講数の一致がどうなのかで判断する
+    }
+    /*大幅改修中　7/29 
     for(var i = parseInt(id_num)+1; i <= 7; i++){
         //選択状態か否かで分岐
-        if(selectEle == false && class_status[count] == true){
+        if(selectEle == false && class_status[count] == "true"){
             c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] -1;
             
-        }else if(selectEle == true && class_status[count] == false){
+        }else if(selectEle == true && class_status[count] == "false"){
             c_nums[0][c_name][i-1] = c_nums[0][c_name][i-1] +1;
             
         }else{
-            alert(selectEle+":"+class_status[count]);
+            console.log(selectEle+":"+class_status[count]);
         }
         console.log("write" + c_nums[0][c_name][i-1])
         document.getElementById(c_name+":"+i).innerHTML = c_name+"第"+c_nums[0][c_name][i-1]+"講";
         document.getElementById(c_name+":"+i).value = c_name+"第"+c_nums[0][c_name][i-1]+"講";
         
     }
-        if(selectEle == false && class_status[count] == true){
-            class_status[count] = false;
-        }else if(selectEle == true && class_status[count] == false){
-            class_status[count] = true;
+        if(selectEle == false && class_status[count] == "true"){
+            class_status[count] = "false";
+        }else if(selectEle == true && class_status[count] == "false"){
+            class_status[count] = "true";
             
         }
-}
+console.log(class_status);
+
+*/
+
+
 //発火の番号は定数化して、valueから工数の変更をする
