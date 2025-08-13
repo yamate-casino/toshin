@@ -1,5 +1,47 @@
+
+
 document.getElementById("st").onchange = change;
 document.getElementById("add1").onclick = add;
+var username = "";
+try{
+var params = new URLSearchParams(document.location.search);
+username  = params.get("username");
+document.getElementById("h4").innerHTML = username;
+}catch(e){
+    console.log(e);
+    alert("ログインしてください");
+}
+
+var time = new Date();
+var month = time.getMonth()+2;
+var year = time.getFullYear();
+var time2 = new Date(year,month-1,1);
+var first_day = time2.getDay();
+var time3 = new Date(year,month,0);
+var after_last_date = time3.getDate();
+var time4 = new Date(year,month-1,0);
+var before_last_date = time4.getDate(); 
+if(first_day == 0){
+    first_day = 7;
+}
+//first_day = 1;
+
+document.getElementById("month").innerHTML = month+"月";
+
+if(first_day == 1){
+
+}else{
+    for(var a = first_day; a >1; a--){
+        var numb = before_last_date-a+2;
+        var text = '<div class="b1"><p class="date2" id="date">'+numb+'</p><div class="d" id="d1"></div></div>';
+        document.getElementById("add_d").insertAdjacentHTML("beforeend",text);
+    }
+}
+//<div class="b1" onclick="pup(1)"><p class="date" id="date">1</p><div class="d" id="d1"></div></div>
+for(var i = 1; i<=after_last_date; i++){
+    var text = '<div class="b1" onclick=pup('+i+')><p class="date" id="date">'+i+'</p><div class="d" id="d1"></div></div>';
+    document.getElementById("add_d").insertAdjacentHTML("beforeend",text);
+}
 function change(data){
     if(data.target.value == "朝勤務"){
    document.getElementById("start_t").value = "09:00";
@@ -15,25 +57,45 @@ function change(data){
 var datas = [{1:[],2:[],3:[],4:[],5:[],6:[],7:[],8:[],9:[],10:[],11:[],12:[],13:[],14:[],15:[],16:[],17:[],18:[],19:[],20:[],21:[],22:[],23:[],24:[],25:[],26:[],27:[],28:[],29:[],30:[],31:[],}];
 var dates = ["月曜","火曜","水曜","木曜","金曜","土曜","日曜"];
 function add(){
-    
+    var res = ""
     var count = 0;
     
     for(var n of dates){
         count++;
         
         if(document.getElementById("se").value == n){   
-            for(var num = count; num <= 31; num+=7){//月によって31とか30とかを変えるようにプログラムすること
-                    console.log("write")
-                    datas[0][num].push(document.getElementById("start_t").value+"-"+document.getElementById("end_t").value);
+            for(var num = first_day; num <= 31; num+=7){//月によって31とか30とかを変えるようにプログラムすること
+                console.log("write")
+                var count3 = 0;
+                  if(datas[0][num].length > 0){
+                    var count2 = -1;
+                        for(var n of datas[0][num]){
+                            count2++;
+                            if(datas[0][num][count2] == document.getElementById("start_t").value+"-"+document.getElementById("end_t").value){
+                               count3++;
+                            }
+                        }
+                        if(count3 == 0){
+                            datas[0][num].push(document.getElementById("start_t").value+"-"+document.getElementById("end_t").value);                        
+                        }else{
+                            res ="登録済みの時間があります  "
+                        }
+                    }else{
+                        datas[0][num].push(document.getElementById("start_t").value+"-"+document.getElementById("end_t").value);
+                    }
+                   
                 }
         }
     }
     console.log(datas);
-    datas_write();
+    datas_write(res);
 }
 var count2 = 0;
-function datas_write(){
+function datas_write(res){
     dac();
+    if(res){
+        alert(res);     
+    }
     for(var i = 1; i <= 31; i++){
         var text = "d"+i;
         if(datas[0][i].length != 0){
@@ -105,7 +167,7 @@ function add2(num){
         var text = '<div class="s1" id="s1"><p>09:00～13:00</p><button id="dd'+count3+'"onclick="del('+day+","+count3+')">削除</button></div>';
         datas[0][day].push("09:00～13:00");
     }else if(num == 2){
-        var text = '<div class="s1" id="s1"><p>014:00～18:00</p><button id="dd'+count3+'"onclick="del('+day+","+count3+')">削除</button></div>';
+        var text = '<div class="s1" id="s1"><p>14:00～18:00</p><button id="dd'+count3+'"onclick="del('+day+","+count3+')">削除</button></div>';
         datas[0][day].push("14:00～18:00");
     }else if(num == 3){
         var text = '<div class="s1" id="s1"><p>18:00～22:00</p><button id="dd'+count3+'"onclick="del('+day+","+count3+')">削除</button></div>';
@@ -162,3 +224,4 @@ function daw(){
             }
     }
 }
+//<div class="b1" onclick="pup(1)"><p class="date" id="date">1</p><div class="d" id="d1"></div></div><div class="b1" onclick="pup(2)"><p class="date" id="date">2</p><div class="d" id="d2"></div></div><div class="b1" onclick="pup(3)"><p class="date" id="date">3</p><div class="d" id="d3"></div></div><div class="b1" onclick="pup(4)"><p class="date" id="date">4</p><div class="d" id="d4"></div></div><div class="b1" onclick="pup(5)"><p class="date" id="date">5</p><div class="d" id="d5"></div></div><div class="b1" onclick="pup(6)"><p class="date" id="date">6</p><div class="d" id="d6"></div></div><div class="b1" onclick="pup(7)"><p class="date" id="date">7</p><div class="d" id="d7"></div></div><div class="b1" onclick="pup(8)"><p class="date" id="date">8</p><div class="d" id="d8"></div></div><div class="b1" onclick="pup(9)"><p class="date" id="date">9</p><div class="d" id="d9"></div></div><div class="b1" onclick="pup(10)"><p class="date" id="date">10</p><div class="d" id="d10"></div></div><div class="b1" onclick="pup(11)"><p class="date" id="date">11</p><div class="d" id="d11"></div></div><div class="b1" onclick="pup(12)"><p class="date" id="date">12</p><div class="d" id="d12"></div></div><div class="b1" onclick="pup(13)"><p class="date" id="date">13</p><div class="d" id="d13"></div></div><div class="b1" onclick="pup(14)"><p class="date" id="date">14</p><div class="d" id="d14"></div></div><div class="b1" onclick="pup(15)"><p class="date" id="date">15</p><div class="d" id="d15"></div></div><div class="b1" onclick="pup(16)"><p class="date" id="date">16</p><div class="d" id="d16"></div></div><div class="b1" onclick="pup(17)"><p class="date" id="date">17</p><div class="d" id="d17"></div></div><div class="b1" onclick="pup(18)"><p class="date" id="date">18</p><div class="d" id="d18"></div></div><div class="b1" onclick="pup(19)"><p class="date" id="date">19</p><div class="d" id="d19"></div></div><div class="b1" onclick="pup(20)"><p class="date" id="date">20</p><div class="d" id="d20"></div></div><div class="b1" onclick="pup(21)"><p class="date" id="date">21</p><div class="d" id="d21"></div></div><div class="b1" onclick="pup(22)"><p class="date" id="date">22</p><div class="d" id="d22"></div></div><div class="b1" onclick="pup(23)"><p class="date" id="date">23</p><div class="d" id="d23"></div></div><div class="b1" onclick="pup(24)"><p class="date" id="date">24</p><div class="d" id="d24"></div></div><div class="b1" onclick="pup(25)"><p class="date" id="date">25</p><div class="d" id="d25"></div></div><div class="b1" onclick="pup(26)"><p class="date" id="date">26</p><div class="d" id="d26"></div></div><div class="b1" onclick="pup(27)"><p class="date" id="date">27</p><div class="d" id="d27"></div></div><div class="b1" onclick="pup(28)"><p class="date" id="date">28</p><div class="d" id="d28"></div></div><div class="b1" onclick="pup(29)"><p class="date" id="date">29</p><div class="d" id="d29"></div></div><div class="b1" onclick="pup(30)"><p class="date" id="date">30</p><div class="d" id="d30"></div></div><div class="b1" onclick="pup(31)"><p class="date" id="date">31</p><div class="d" id="d31"></div></div>

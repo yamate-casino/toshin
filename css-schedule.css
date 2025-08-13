@@ -8,12 +8,19 @@ h1{
     margin:0;
     padding:0;
 }
+h4{
+position: absolute;
+right:0;
+top:0;
+color: gray;
+}
 p{
     margin:0;
     padding: 0;
 }
 .top{
     margin-left:20vw;
+    position: relative;
     margin-top:10vh;
     width:60vw;
     height:fit-content;
@@ -29,7 +36,7 @@ p{
     display: flex;
 }
 .bar p{
-    width: fit-content;
+    width: 7.5vw;
     height:30px;
     line-height: 30px;
     padding-left: 2vw;
@@ -37,6 +44,7 @@ p{
     background-color: black;
     font-size:10px;
     color:white;
+    text-align: center;
 }
 .bar select{
     height: 30px;
@@ -44,7 +52,12 @@ p{
 .bar input{
     padding:0;
     height:30px;
+    width:10vw;
     border:none;    
+}
+.bar .add1{
+    width:4vw;
+    text-align: center;
 }
 .bar .add1:hover{
     background-color: lightgray;
@@ -61,7 +74,7 @@ p{
 }
 .ca .b1{
     position: relative;
-    width:9.7vw;
+    width:9vw;
     height:9.7vw;
     display: inline-block;
     vertical-align: top;
@@ -86,8 +99,11 @@ p{
     top:10px;
     left:10px;
 }
+.ca .date2{
+    color:lightgray;
+}
 .b p{
-    width:9.7vw;
+    width:9vw;
     text-align: center;
     display: inline-block;
     font-weight: 600;
@@ -142,27 +158,30 @@ p{
 .u .left .s1{
     position: relative;
     top:5vh;
-    left:0.5vw;
+    left:0;
     margin:0;
     padding: 0;
     padding: 2vw;
     padding-left:4vw;
-    padding-right:4vw;
+    padding-right:6vw;
     background-color: rgb(243, 243, 243);
     width: max-content;
     text-align: center;
+    font-size:15px;
 }
 .u .left .s1 button{
     position: absolute;
-    bottom:0;
+    bottom:2.5px;
     right:0;
+    font-size:10px;
     padding-bottom: 2vw;
     padding-top:2vw;
     border:none;   
      outline:none;
+     background-color: rgb(243, 243, 243);
 }
 .u .left button:hover{
-    background-color: lightgray;
+    font-weight: 600;
 }
 .u .right{
     position: relative;
@@ -174,7 +193,7 @@ p{
 .u .right p{
     display: inline-block;
     position: relative;
-    top:0.5vh;
+    top:1vh;
     
     width:max-content;
     padding-left:1vw;
@@ -195,11 +214,12 @@ p{
     border:none;
 }
 .u .right .o:hover{
-    background-color:  rgb(238, 238, 238);
+    background-color:white;
 }
 .u .right .a{
     padding-left:2.5vw;
     padding-right:2.5vw;
+    
 }
 .u small{
     background-color: black;
@@ -240,6 +260,7 @@ p{
     width:max-content;
     background-color: black;
     color:white;
+    font-size:12.5px; 
 }
 .sub:hover{
     background-color: lightgray;

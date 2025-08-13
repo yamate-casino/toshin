@@ -4,6 +4,8 @@ var url22 = "https://script.google.com/macros/s/AKfycbzbI8mIZO042dfiGIcA0EbwW_Xr
 var username = '';
 var num = '';
 var datas  = '';
+datas = [{"a1":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a2":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a3":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a4":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a5":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a6":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a7":[{"juko":[],"kmas":[],"other":[],"time":[]}],"datas":[{"username":[],"num":[]}]}]
+//↑わんちゃんこれダメかも　8/11
 var a_status = 'no';
 var count_a = 0;
 function check(json,message){
@@ -19,7 +21,7 @@ function check(json,message){
     }else if(json[0] == json[1] && message == "check"){
       a_status = "ok";
       document.getElementById("block6").innerHTML = "";
-      var text = '<div class="block5" id="block5" onclick="send()">登録</div>';
+      var text = '<div class="block5" id="block5" onclick="send()">確認する</div>';
       document.getElementById("block6").insertAdjacentHTML("beforeend",text);
     }else if(message == "check_add"){
         count_a++;
@@ -81,14 +83,21 @@ function get_classes(json){
 var n_c = 1; //現在の受講コマ数
 
 //現在の授業コマを記録するJSONを作る
-c_nums = "[{";
-for(var c of json){
+//c_nums = c_nums.substring(0,c_nums.length-1)+"}]";
+//c_nums = JSON.parse(c_nums);
+
+    c_nums = '[{"';
+ for(var c of json){
+    text1 += '<option value="'+c+"第"+n_c+'講" id="'+c+":"+d+'" onclick=c_change("'+c+":"+d+'")>'+c+"第"+n_c+"講"+'</option>';
+    //c_nums[0][c].push(n_c);
+    c_nums+=c+'":['+n_c+'],"'
     class_names.push(c);
-    class_status.push("false");
-    c_nums+='"'+c+'":[],';
 }
-c_nums = c_nums.substring(0,c_nums.length-1)+"}]";
+c_nums = c_nums.substring(0,parseInt(c_nums.length)-2);
+c_nums+='}]';
 c_nums = JSON.parse(c_nums);
+console.log("c_nums : "+c_nums);
+
 for(var d = 1; d<=7; d++){
     if(date > last_d){
         month+=1;
@@ -105,10 +114,7 @@ for(var d = 1; d<=7; d++){
     alert("エラー");
  }else{
     
- for(var c of json){
-    text1 += '<option value="'+c+"第"+n_c+'講" id="'+c+":"+d+'" onclick=c_change("'+c+":"+d+'")>'+c+"第"+n_c+"講"+'</option>';
-    c_nums[0][c].push(n_c);
-}
+
 }
 text1 += '</select>';
 
@@ -165,7 +171,7 @@ fetch(u,{
 
 function send(){
     if(a_status == "ok"){
-datas = [{"a1":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a2":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a3":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a4":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a5":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a6":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a7":[{"juko":[],"kmas":[],"other":[],"time":[]}],"datas":[{"username":[],"num":[]}]}]
+//datas = [{"a1":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a2":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a3":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a4":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a5":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a6":[{"juko":[],"kmas":[],"other":[],"time":[]}],"a7":[{"juko":[],"kmas":[],"other":[],"time":[]}],"datas":[{"username":[],"num":[]}]}]
 
 for(var i = 1; i <= 7; i++){
 var id_name = "juko"+i;
@@ -285,3 +291,67 @@ console.log(class_status);
 
 
 //発火の番号は定数化して、valueから工数の変更をする
+
+function up(num){
+    document.getElementById("nc").style.display = "none";
+    document.getElementById("nc").style.opacity = 0;
+    document.getElementById("up").style.display = "block";
+    document.getElementById("up").style.opacity = 1;
+    var count = 0;
+    var text = '<div class="add_class" id="add_class"><div class="none_class" id="none_class"><p>現在受講予定はありません</p></div></div>'
+    document.getElementById("left").insertAdjacentHTML("beforeend",text);
+    for(var c of class_names){
+        count++;
+        var text = '<p id="a'+num+count+'" onclick=add("a'+num+count+'")>'+c+'第'+c_nums[0][c][0]+'講</p>';
+        document.getElementById("now_class").insertAdjacentHTML("beforeend",text);
+    }
+     
+     var n = "a"+(parseInt(num)+1);
+     console.log("n : "+n);
+     console.log("length : "+datas[0][n][0]["juko"].length);
+     if(datas[0][n][0]["juko"].length > 0){
+     var count2 = 0;
+     document.getElementById("none_class").remove();
+     for(var juko of datas[0][n][0]["juko"]){
+        var text2 = '<div class="bb1" id="b'+num+count2+'"><p>'+juko+'</p><button onclick=del("b'+num+count2+'")>削除</button></div>'
+        document.getElementById("add_class").insertAdjacentHTML("beforeend",text2);
+     }
+    }
+}
+function down(){
+    document.getElementById("nc").style.display = "block";
+    document.getElementById("nc").style.opacity = 1;
+    document.getElementById("up").style.display = "none";
+    document.getElementById("up").style.opacity = 0;
+    document.getElementById("add_class").remove();
+}
+
+function add(text){
+    c_nums = JSON.parse(c_nums);
+    try{
+    document.getElementById("none_class").remove();
+    }catch(e){
+     //すでに登録されている講座を取得するように
+     var n = "a"+text.substring(2,3);
+     var count2 = 0;
+     for(var juko of datas[0][n][0]["juko"]){
+        var text2 = '<div class="bb1" id="b'+text+count2+'"><p>'+juko+'</p><button onclick=del("b'+text+count2+'")>削除</button></div>'
+        document.getElementById("add_class").insertAdjacentHTML("beforeend",text2);
+     }
+    }
+    
+    var c_nums_n = text.substring(1,2);
+    var class_name = document.getElementById(text).innerHTML;
+    class_name = class_name.substring(0,class_name.indexOf("第"));
+        c_nums[0][class_name][0] = c_nums[0][class_name][0]+1;
+    var text2 = '<div class="bb1" id="b'+text+'"><p>'+document.getElementById(text).innerHTML+'</p><button onclick=del("b'+text+'")>削除</button></div>'
+    document.getElementById("add_class").insertAdjacentHTML("beforeend",text2);
+    datas[0]["a"+text.substring(2,3)][0]["juko"].push(document.getElementById(text).innerHTML);
+    down();
+    up(c_nums_n);
+}
+function del(text){
+    document.getElementById(text).remove();
+}
+
+//5

@@ -1,5 +1,12 @@
 var url = "https://script.google.com/macros/s/AKfycbzOZAq9JFJc5BpIG-4zERxHzwt8SeiV4Hle7wH2LPC9_QQThY9FJ2RpuGfGelEI2Ah3rw/exec";
 var branch = "run";
+
+document.getElementById("num").addEventListener("keydown",(e)=>{
+    if(e.key === "Enter"){
+        send();
+    }
+})
+
 function send(){
     branch = "run";
     ani();

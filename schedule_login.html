@@ -3,13 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>シフト管理ーログイン</title>
-        <link rel="stylesheet" href="css-shcedule_login.css">
+        <link rel="stylesheet" href="css-schedule_login.css">
     </head>
     <body>
-        <h1>ログイン</h1>
+        <h1 id="h1">東進衛星予備校藤沢駅南口校シフト管理 ｜　ログイン</h1>
+        <input type="text" id="mail" class="m"value="" placeholder="メールアドレス">
         <input type="text" id="username" value="" placeholder="ユーザー名">
         <input type="password" id="pass" value="" placeholder="パスワード">
-        <button onclick="sub()">ログイン</button>
-        <script src="js-shcedule_login.js"></script>
+        <div class="bt1" id="bt1">
+                <button id="btn"onclick='register("lg")'>ログイン</button>
+        </div>
+        
+        <div class="bt" id="bt">
+            <p>登録がまだですか？</p>
+            <button onclick="change_screen()">新規登録</button>
+            <p>パスワードを忘れた</p>
+            <button onclick="forget_password()">パスワードを忘れた</button>
+        </div>
+        <div class="f" id="f"></div>
+        <div class="full" id="full">
+            <div class="b1" id="b1"></div>
+            <div class="b2" id="b2"></div>
+            <div class="b3" id="b3"></div>
+            <div class="b4" id="b4"></div>
+            <p id="n" >Loading...</p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="js-schedule_login.js"></script>
     </body>
 </html>
