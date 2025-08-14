@@ -285,3 +285,150 @@ input{
 h1{
     color:black;
 }
+
+
+.ud .up{
+    display: none;
+    opacity: 0;
+}
+.ud .nc {
+    display: block;
+    opacity: 1;
+}
+.up .ce{
+    width:90vw;
+    height:90vh;
+    position: absolute;
+    top:-225px;
+    left:5vw;
+    margin:0;
+    padding:0;
+    background-color: white;
+    z-index: 10000;
+}
+.up .sha{
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:-250px;
+    left:0;
+    margin:0;
+    padding:0;
+    background-color: black;
+    box-shadow: 0 0 2px 5px black;
+    opacity: 0.8;
+    z-index:100;
+}
+.ud .nc button{
+    font-size: 1vw;
+    background-color: black;
+    outline: auto;
+    
+    padding:0.5vw;
+    color:white;
+}
+.ce{
+    position: relative;
+}
+.ce .theme1{
+    position: absolute;
+    top:2.5vh;
+    left:2.5vw;
+    font-size:4vw;
+}
+.ce .left{
+    position: absolute;
+    left:5vw;
+    top:15vh;
+    width:35vw;
+    height:80vh;
+    color:black;
+}
+.ce .left p{
+ border: none;
+ background-color: black;
+ color:white;   
+ font-size: 1vw;
+ padding-left:2vw;
+ padding-right:2vw;
+ padding-top:1vw;
+ padding-bottom:1vw;
+}
+.ce .left .add_class p{
+    background-color: white;
+    color:black;
+}
+.ce .right{
+    position: absolute;
+    right:5vw;
+    top:15vh;
+    width:35vw;
+    height:80vh;
+    color:black;
+}
+.ce .right p{
+    border:none;
+    background-color: black;
+    color:white;
+    font-size: 1vw;
+ padding-left:2vw;
+ padding-right:2vw;
+ padding-top:1vw;
+ padding-bottom:1vw;
+}
+.ce .right .now_class p{
+    background-color: white;
+    color:black;
+    border-bottom:5px solid black;
+}
+.ce .right .now_class small{
+    color:darkgray;
+}
+.ce .cl{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color:black;
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-top:1vh;
+    padding-bottom:1vh;
+}
+.ce .cl:hover{
+    background-color: black;
+    color:white;
+}
+.center .block3 .block4 .c1 .bb1{
+    position: relative;
+    width:20vw;
+    height:5vh;
+    margin:0;
+    margin-top: 1vh;
+    margin-bottom:1vh;
+    padding:0;
+    display: flex;
+    
+}
+.ce .left .add_class .bb1 p{
+    position: absolute;
+    top:0;
+    left:0;
+    width:15vw;
+    height:5vh;
+    margin:0;
+    padding:0;
+    text-align:center;
+    line-height: 5vh;
+    background-color: rgb(239, 239, 239);
+}
+.ce .left .add_class .bb1 button{
+    position: absolute;
+    top:0;
+    right:0;
+    width:4vw;
+    height:5vh;
+    outline:none;
+    border:none;
+    margin:0;
+    padding:0;
+}

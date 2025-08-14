@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css-add.css">
     </head>
     <body onload="load_classes()">
+    <!--body-->
         <div class="top" id="top">
             <h1>Toshin Weekly Schedule</h1>
             <div class="b1" id="b1">
@@ -29,7 +30,66 @@
             </div>
             
             <div class="block4" id="block4">
-                
+                <div class="block1" id="block1">
+                    <div class="c1" id="c1">
+                        <p class="schedule" id="schedu">日付</p>
+                        <p class="schedule2" id="schedule2">8/8</p>
+                    </div>
+                    <div class="c1" id="c1">
+                        <p class="schedule" id="schedu">受講予定</p>
+                        <div class="ud" id="ed">
+                            <div class="nc" id="nc">
+                                <button onclick="up(0)">予定を追加する</button>
+                            </div>
+                        <div class="up" id="up">
+                            <div class="sha" id="sha"></div>
+                            <div class="ce" id="ce">
+                                <h1 class="theme1" id="theme1"> 8/8</h1>
+                                <div class="left" id="left">
+                                    <p>現在の受講予定</p>
+                                </div>
+                                <div class="right" id="right">  
+                                    <p>登録する講座</p>
+                                    <div class="now_class" id="now_class">
+                                    </div>
+                                </div>
+                                <div class="cl" id="cl" onclick="down()">閉じる</div>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
+                    <div class="c1" id="c1">
+                        <p class="schedule" id="schedu">高マス予定</p>
+                                                <div class="ud" id="ed">
+                            <div class="nc" id="nc">
+                                <button>予定を追加する</button>
+                            </div>
+                        <div class="up" id="up">
+                        <select name="" id="komasu" multiple="">
+                            <option value="ぐんぐん">ぐんぐん</option>
+                        </select>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div class="c1" id="c1">
+                        <p class="schedule" id="schedu">その他予定</p>
+                                                <div class="ud" id="ed">
+                            <div class="nc" id="nc">
+                                <button>予定を追加する</button>
+                            </div>
+                        <div class="up" id="up">
+                            <input type="text" id="sonot1" value="" placeholder="その他予定">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="c1" id="c1">
+                        <p class="schedule" id="schedu">来校予定(校舎ならチェック)</p>
+                        <input type="checkbox" id="checkb1" value="" checked="">
+                        <input type="number" id="number1" value="" placeholder="時間(例1700・0900)">
+                    </div>
+                </div>
             </div>
             
 

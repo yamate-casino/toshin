@@ -39,7 +39,7 @@ button{
     border:none;
     background-color: black;
     color:white;
-    line-height: 7.5vh;
+    line-height: 50px;
     font-size:10px;
     transition: background-color 0.05s ease-in-out 0.05s,color 0.05s ease-in-out 0.05s,font-weight 0.05s ease-in-out 0.05s;
 }
@@ -76,6 +76,7 @@ p{
 .bt1 p:hover{
     font-weight:800;
 }
+
 .f{
     position: absolute;
     top:0;
