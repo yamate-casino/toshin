@@ -5,13 +5,13 @@
         <title>シフト希望</title>
         <link rel="stylesheet" href="css-schedule.css">
     </head>
-    <body id="bod">
+    <body id="bod" onload="start()">
         <div class="top" id="top">
             <h1 class="month" id="month">6月</h1>
             <h4 class="h4" id="h4"></h4>
         </div>
         <div class="bar" id="bar">
-            <p>週間予定</p>
+            <p id="w">週間予定</p>
             <select name="sw" id="se">
                 <option value="選択してください">選択してください</option>
                 <option value="月曜">月曜</option>
@@ -48,6 +48,103 @@
         </div>
          <div class="sub" id="sub">提出</div>
         </div>
+
+        <!--div class="su1" id="su1">
+            <p class="su_d">1日</p>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">9:00～13:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(1,1,0)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(1,2,0)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(1,1,1)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">14:00～18:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names2">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">18:00～22:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block2" id="su_block1">
+                 <p class="su_time">その他の時間帯</p>
+                    <div class="names" id="names">
+                        <p>なし</p>
+                    </div>
+            </div>
+        </div>
+        <div class="su1" id="su1">
+            <p class="su_d">2日</p>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">9:00～13:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(1,1,0)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(1,2,0)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(1,1,1)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">14:00～18:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names2">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block1" id="su_block1">
+                 <p class="su_time">18:00～22:00</p>
+                 <small>シフト希望</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+                 <small>確定シフト</small>
+                    <div class="names" id="names">
+                        <p class="p1" id="p31" onclick="add3(3,1)">松尾</p>
+                        <p class="p1" id="p32" onclick="add3(3,2)">松尾</p>
+                    </div>
+            </div>
+            <div class="su_block2" id="su_block1">
+                 <p class="su_time">その他の時間帯</p>
+                    <div class="names" id="names">
+                        <p>なし</p>
+                    </div>
+            </div>
+        </div-->
+
+
         <div class="u" id="u">
             <div class="shadow" id="shadow"></div>
             <div class="center" id="center">

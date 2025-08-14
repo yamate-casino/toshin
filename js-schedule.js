@@ -50,6 +50,28 @@ for(var i = 1; i<=after_last_date; i++){
     var text = '<div class="b1" onclick=pup('+i+')><p class="date" id="date">'+i+'</p><div class="d" id="d'+i+'"></div></div>';
     document.getElementById("add_d").insertAdjacentHTML("beforeend",text);
 }
+
+function start(){
+    var url1 = url+"?branch=s_check&username="+username;
+    fetch(url1,{
+        "method":"get",
+        "mode":"cors"
+    })
+    .then(response=>{
+        if(response.ok){
+            return response.json()
+        }
+    })
+    .then(json=>{
+        if(json == "ok"){
+            
+        }else{
+            alert("登録の許可がありません");
+            document.getElementById("sub").style.display = "none";
+        }
+    })
+}
+
 function change(data){
     if(data.target.value == "朝勤務"){
    document.getElementById("start_t").value = "9:00";
@@ -254,12 +276,120 @@ function sub(){
         "Content-Type":"application/json",
         "body":JSON.stringify(datas)
     }
-    url+='?username='+username;//セキュリティ面アウト
-    fetch(url,params)
+    var url1 = url+'?username='+username;//セキュリティ面アウト
+    fetch(url1,params)
     .then(res=>{
         console.log(res);
         if(res.ok){
             console.log("success");
         }
     })
+}
+document.getElementById("w").onclick = w;
+var schedule_datas = "";
+var none = "";
+function w(t){
+    var c = 0;
+    if(t == "n"){
+        var data = ["n"];
+        var params = {
+            "method":"post",
+            "mode":"no-cors",
+            "Content-Type":"application/json",
+            "body":JSON.stringify(data)
+        }
+        fetch(yrl,params);
+        alert("送信しました");
+    }else if(t == "m"){
+        var data = ["m"];
+        var params = {
+            "method":"post",
+            "mode":"no-cors",
+            "Content-Type":"application/json",
+            "body":JSON.stringify(data)
+        }
+        fetch(url,params);
+        alert("送信しました");
+        setTimeout(()=>{
+            console.log("受信開始");
+            var datas1 = "";
+        var datas2 = "";
+        var urls = ["?branch=s_register","?branch=s_name"];
+        for(var i = 0; i<=1; i++){
+            console.log("リクエスト"+i);
+            var text = url+urls[i];
+            console.log("URL:"+text);
+            fetch(text,{
+                "method":"get",
+                "mode":"cors"
+            })
+            .then(response=>{
+                if(response.ok){
+                    return response.json()
+                }
+            })
+            .then(json=>{
+                console.log(json);
+                if(json.length == 1 && json[0][31]){
+                    schedule_datas = json;
+                    c++;
+                }else{
+                    none = json;
+                    c++;
+                }
+                if(c == 2){
+                    schedule_sudo();
+                }
+            })
+            .catch(e=>{
+                console.log(e);
+            })
+        }
+        },2000);
+        
+    }else if(document.getElementById("start_t").value == "ww"){
+        document.getElementById("add_d").remove();
+        document.getElementById("b").remove();
+        document.getElementById("se").remove();
+        document.getElementById("st").remove();
+        document.getElementById("start_t").remove();
+        document.getElementById("end_t").remove();
+        document.getElementById("add1").remove();
+        document.getElementById("sub").remove();
+        document.getElementById("w").innerHTML = "管理者ページ";
+        var text = '<p onclick=w("n") class="pw">新規シフト登録の許可</p><p onclick=w("m") class="pw">シフトの確認</p><div id="blocks"></div>';
+        document.getElementById("ca").insertAdjacentHTML("beforeend",text);
+
+    }
+}
+
+function schedule_sudo(){
+for(var date = 1; date<=31; date++){
+var text = '<div class="su1" id="su1"><p class="su_d">'+date+'日</p><div class="su_block1" id="su_block1"><p class="su_time">9:00～13:00</p><small>シフト希望</small><div class="names" id="names1'+date+'"></div><small>確定シフト</small><div class="names" id="namess1"></div></div><div class="su_block1" id="su_block1"><p class="su_time">14:00～18:00</p><small>シフト希望</small><div class="names" id="names2'+date+'"></div><small>確定シフト</small><div class="names" id="namess2"></div></div><div class="su_block1" id="su_block1"><p class="su_time">18:00～22:00</p><small>シフト希望</small><div class="names" id="names3'+date+'"></div><small>確定シフト</small><div class="names" id="namess3"></div></div><div class="su_block2" id="su_block1"><p class="su_time">その他の時間帯</p><div class="names" id="names4'+date+'"></div></div></div>';
+document.getElementById("blocks").insertAdjacentHTML("beforeend",text);
+for(var num = 1; num<=4; num++){
+    var text2 = "names"+num+date;
+    /*console.log(text2);
+    console.log(schedule_datas[0]);
+    console.log(schedule_datas[0][date]);
+    console.log(schedule_datas[0][date][0]);
+    console.log(schedule_datas[0][date][0][num]);
+    console.log(schedule_datas[0][date][0][num].length);*/
+    if(schedule_datas[0][date][0][num].length == 0){
+        document.getElementById(text2).insertAdjacentHTML("beforeend","<p>希望者なし</p>");
+    }else{
+        var count = 0;
+        for(var a of schedule_datas[0][date][0][num]){
+            count++;
+            var text = '<p class="p1" id="p1'+count+'" onclick=add3('+num+','+count+',0)>'+a+'</p>';
+            document.getElementById(text2).insertAdjacentHTML("beforeend",text);
+        }   
+    }
+}
+}
+}
+var count4 = 0;
+function add3(t,n,s){
+    var text = "p"+t+n+s;
+
 }

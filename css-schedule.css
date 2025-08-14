@@ -268,3 +268,67 @@ p{
 .sub:active{
     background-color: black;
 }
+.pw{
+    border-bottom:1px solid black;
+}
+.pw:hover{
+    font-weight: 600;;
+}
+
+.su1{
+    width:92vw;
+    height:max-content;
+    margin:0;
+    padding:0;
+    margin-left:-10vw;
+}
+.su1 .su_d{
+    font-size:30px;
+    font-weight:600;
+    margin:0;
+    padding:0;
+}
+.su1 .su_block1{
+    display: inline-block;
+    width:30vw;
+    margin:0;
+    padding:0;
+    background-color: black;
+    color:white;
+}
+.su1 .su_block1 .su_time{
+    font-size:20px;
+    font-weight: 600;
+        margin:0;
+    padding:0;
+    padding:10px;
+}
+.su1 .su_block1 .names{
+    margin-left:10px;
+    margin-right:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid white;
+}
+.su1 .su_block1 small{
+    
+    margin-left:20px;
+}
+.su1 .su_block1 .names p{
+    display: inline-block;
+    padding:10px;
+    color:white;
+    border:none;
+}
+.su1 .su_block2{
+    display: inline-block;
+    background-color: white;
+    color:black;
+}
+.su1 .su_block2 .su_time{
+    font-size:20px;
+    font-weight: 600;
+}
+.su1 .su_block2 .names p{
+    display: inline-block;
+    padding:10px;
+}
