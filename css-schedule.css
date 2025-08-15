@@ -360,6 +360,7 @@ p{
     background-color: black;
     opacity: 0.6;
     z-index: 1000;
+    display: block;
 }
 .start_check2{
     position: absolute;
@@ -423,4 +424,195 @@ p{
 .fix:hover{
     background-color: white;
     color:black;
+}
+
+
+
+.u2{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+.u2 .shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color: black;
+    opacity: 0.6;
+}
+.u2 .center{
+    position: absolute;
+    left: 10vw;
+    top:10vh;
+    width:80vw;
+    height:80vh;
+     box-shadow: 0 0 5px 1px gray;
+    background-color: rgb(253, 253, 253);
+    z-index: 100;
+    vertical-align: top;
+    display: inline-block;
+}
+.u2 .u2d{
+    position: relative;
+    left:5vw;
+    top:5vh;
+    font-size: 40px;
+    font-weight: 600;
+    
+    z-index: 100;
+}
+.u2 .left{
+    position: relative;
+    left:2.5vw;
+    top:10vh;
+    width:40vw;
+    height:60vh;
+}
+
+.u2 .left .s1{
+    position: relative;
+    top:5vh;
+    left:0;
+    margin:0;
+    padding: 0;
+    padding: 2vw;
+    padding-left:4vw;
+    padding-right:6vw;
+    background-color: rgb(243, 243, 243);
+    width: max-content;
+    text-align: center;
+    font-size:15px;
+}
+.u2 .left .s1 button{
+    position: absolute;
+    bottom:2.5px;
+    right:0;
+    font-size:10px;
+    padding-bottom: 2vw;
+    padding-top:2vw;
+    border:none;   
+     outline:none;
+     background-color: rgb(243, 243, 243);
+}
+.u2 .left button:hover{
+    font-weight: 600;
+}
+.u2 .right{
+    position: relative;
+    left:50%;
+    top:-50vh;
+    width: 40vw;
+    height:60vh;
+}
+.u2 .right .d1{
+    position: relative;
+    top:5vh;
+    vertical-align: top;
+}
+.u2 .right div{
+    margin-top:1vh;
+    margin-bottom: 1vh;
+}
+.u2 .right .d1 div small{
+    margin: 0;
+    padding:0;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size:10px;
+    vertical-align:middle;
+}
+.u2 .right p{
+    display: inline-block;
+    width:max-content;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size:10px;
+    vertical-align: middle;
+    /*border-bottom:1px solid black;*/
+}
+.u2 .right p:hover{
+    background-color: lightgray;
+}
+.u2 .right input{
+    position: relative;
+    top:0.5vh;
+}
+.u2 .right .o{
+    border:none;
+}
+.u2 .right .o:hover{
+    background-color:white;
+}
+.u2 .right .a{
+    padding-left:2.5vw;
+    padding-right:2.5vw;
+    
+}
+.u2 small{
+    background-color: black;
+    color:white;
+    padding-left:5vw ;
+    padding-right:5vw ;
+    padding-top:2.5vh;
+    padding-bottom:2.5vh;
+    letter-spacing: 2px;
+}
+.u2 .left .s{
+    height: 10vh;
+}
+.u2 .left .s p{
+    position: relative;
+    left:5vw;
+    top:1vh;
+    font-weight:600;
+    text-align: center;
+}
+.u2 .left .block{
+    position: absolute;
+    top:7.5vh;
+    left:2.5vw;
+}
+.u2 .left .s small{
+ padding:0;
+ margin:0;
+ width:fit-content;
+ text-align: center;
+ display: block;
+ background-color: white;
+ color:black;
+ font-weight: 600;
+}
+.u2 .d2{
+    
+    width: max-content;
+    border-top:1px solid black;
+}
+.u2 .center .close{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+}
+.u2 .center .close:hover{
+ background-color: black;
+ color:white;
+}
+.u2 .center .close:active{
+ background-color: white;
+ color:black;
+}
+.dd{
+    font-size:11px;
 }

@@ -315,6 +315,12 @@ var none = "";
 function w(t){
     var c = 0;
     if(t == "n"){
+        document.getElementById("blocks").remove();
+    var text = '<div id="blocks"></div>';
+    document.getElementById("ca").insertAdjacentHTML("beforeend",text);
+    document.getElementById("bar").style.paddingLeft = "15vw";
+    document.getElementById("ca").style.marginLeft = "15vw";
+
         var data = ["n"];
         var params = {
             "method":"post",
@@ -325,6 +331,12 @@ function w(t){
         fetch(yrl,params);
         alert("送信しました");
     }else if(t == "m"){
+        document.getElementById("blocks").remove();
+    var text = '<div id="blocks"></div>';
+    document.getElementById("ca").insertAdjacentHTML("beforeend",text);
+    document.getElementById("bar").style.paddingLeft = "15vw";
+    document.getElementById("ca").style.marginLeft = "15vw";
+
         document.getElementById("pw").innerHTML = "読込み中";
         var data = ["m"];
         var params = {
@@ -376,11 +388,18 @@ function w(t){
     }else if(t == "y"){
 
     }else if(t == "fs"){
-        console.log(json);
+        
     }else if(t == "sn"){
+                document.getElementById("blocks").remove();
+    var text = '<div id="blocks"></div>';
+    document.getElementById("ca").insertAdjacentHTML("beforeend",text);
+    document.getElementById("bar").style.paddingLeft = "15vw";
+    document.getElementById("ca").style.marginLeft = "15vw";
 
-var text = '<div class="bar" id="bar"><p id="w"><p><select name="sw" id="se"><option value="選択してください">選択してください</option><option value="月曜">月曜</option><option value="火曜">火曜</option><option value="水曜">水曜</option><option value="木曜">木曜</option><option value="金曜">金曜</option><option value="土曜">土曜</option><option value="日曜">日曜</option></select><select name="st" id="st" ><option value="選択してください">選択してください</option><option value="朝勤務">朝勤務</option><option value="昼勤務">昼勤務</option><option value="夜勤務">夜勤務</option></select><input type="text" value="" id="start_t"><input type="text" value="" id="end_t"><p class="add1" id="add1">追加</p></div><div class="ca" id="ca"><div class="b" id="b"><p>月</p><p>火</p><p>水</p><p>木</p><p>金</p><p>土</p><p>日</p></div><div class="add_d" id="add_d"></div><div class="sub" id="sub">提出</div></div>';
-document.getElementById("blocks").insertAdjacentHTML("before",text);
+var text = '<div class="bar" id="bar"><p id="w">週間入力</p><select name="sw" id="sday"><option value="選択してください">選択してください</option><option value="月曜">月曜</option><option value="火曜">火曜</option><option value="水曜">水曜</option><option value="木曜">木曜</option><option value="金曜">金曜</option><option value="土曜">土曜</option><option value="日曜">日曜</option></select><select name="st" id="stime" ><option value="選択してください">選択してください</option><option value="朝勤務">朝勤務</option><option value="昼勤務">昼勤務</option><option value="夜勤務">夜勤務</option></select><select name="st" id="snumber" ><option value="選択してください">選択してください</option><option value="募集なし">募集なし</option><option value="1人">1人</option><option value="2人">2人</option></select><p class="add1" onclick=addd1()>追加</p></div><div class="ca" id="ca"><div class="b" id="b"><p>月</p><p>火</p><p>水</p><p>木</p><p>金</p><p>土</p><p>日</p></div><div class="add_d" id="add_d"></div><div class="sub" onclick="sub2()">決定</div></div>';
+document.getElementById("blocks").insertAdjacentHTML("beforeend",text);
+document.getElementById("bar").style.paddingLeft = "0";
+document.getElementById("ca").style.marginLeft = "0";
 var time = new Date();
 var month = time.getMonth()+2;
 var year = time.getFullYear();
@@ -408,7 +427,7 @@ if(first_day == 1){
 }
 //<div class="b1" onclick="pup(1)"><p class="date" id="date">1</p><div class="d" id="d1"></div></div>
 for(var i = 1; i<=after_last_date; i++){
-    var text = '<div class="b1" onclick=pup('+i+')><p class="date" id="date">'+i+'</p><div class="d" id="d'+i+'"></div></div>';
+    var text = '<div class="b1" onclick=pup2('+i+')><p class="date" id="date">'+i+'</p><div class="d" id="d'+i+'"></div></div>';
     document.getElementById("add_d").insertAdjacentHTML("beforeend",text);
 }
 
@@ -423,7 +442,7 @@ for(var i = 1; i<=after_last_date; i++){
         document.getElementById("add1").remove();
         document.getElementById("sub").remove();
         document.getElementById("w").innerHTML = "管理者ページ";
-        var text = '<p onclick=w("n") class="pw">新規シフト登録の許可</p><p onclick=w("m") class="pw" id="pw">シフトの確認</p><p onclick=w("fs") class="pw" id="pw">確定シフト</p><p onclick=w("sn") class="pw" id="pw">募集人数の設定</p><div id="blocks"></div>';
+        var text = '<p onclick=w("n") class="pw">新規シフト登録の許可</p><p onclick=w("m") class="pw" id="pw">シフトの確認</p><p onclick=w("fs") class="pw" id="fs">確定シフト</p><p onclick=w("sn") class="pw" id="sn">募集人数の設定</p><div id="blocks"></div>';
         document.getElementById("ca").insertAdjacentHTML("beforeend",text);
 
     }
@@ -496,4 +515,123 @@ function fixed(){
     }
     var url2 = url+"?branch=ficed";
     fetch(url2,params);
+}
+var number_data = [{"1":[{"1":[],"2":[],"3":[],"4":[]}],"2":[{"1":[],"2":[],"3":[],"4":[]}],"3":[{"1":[],"2":[],"3":[],"4":[]}],"4":[{"1":[],"2":[],"3":[],"4":[]}],"5":[{"1":[],"2":[],"3":[],"4":[]}],"6":[{"1":[],"2":[],"3":[],"4":[]}],"7":[{"1":[],"2":[],"3":[],"4":[]}],"8":[{"1":[],"2":[],"3":[],"4":[]}],"9":[{"1":[],"2":[],"3":[],"4":[]}],"10":[{"1":[],"2":[],"3":[],"4":[]}],"11":[{"1":[],"2":[],"3":[],"4":[]}],"12":[{"1":[],"2":[],"3":[],"4":[]}],"13":[{"1":[],"2":[],"3":[],"4":[]}],"14":[{"1":[],"2":[],"3":[],"4":[]}],"15":[{"1":[],"2":[],"3":[],"4":[]}],"16":[{"1":[],"2":[],"3":[],"4":[]}],"17":[{"1":[],"2":[],"3":[],"4":[]}],"18":[{"1":[],"2":[],"3":[],"4":[]}],"19":[{"1":[],"2":[],"3":[],"4":[]}],"20":[{"1":[],"2":[],"3":[],"4":[]}],"21":[{"1":[],"2":[],"3":[],"4":[]}],"22":[{"1":[],"2":[],"3":[],"4":[]}],"23":[{"1":[],"2":[],"3":[],"4":[]}],"24":[{"1":[],"2":[],"3":[],"4":[]}],"25":[{"1":[],"2":[],"3":[],"4":[]}],"26":[{"1":[],"2":[],"3":[],"4":[]}],"27":[{"1":[],"2":[],"3":[],"4":[]}],"28":[{"1":[],"2":[],"3":[],"4":[]}],"29":[{"1":[],"2":[],"3":[],"4":[]}],"30":[{"1":[],"2":[],"3":[],"4":[]}],"31":[{"1":[],"2":[],"3":[],"4":[]}]}];
+
+function addd1(){
+var dates = ["月曜","火曜","水曜","木曜","金曜","土曜","日曜"];
+var dates2 = ["朝勤務","昼勤務","夜勤務"];
+
+var count = 0;
+for(var n of dates){
+        count++;
+        
+        if(document.getElementById("sday").value == n){   
+            for(var num = count; num <= after_last_date; num+=7){//月によって31とか30とかを変えるようにプログラムすること
+                console.log("write")
+                var count4 = 0;
+                 for(var d of dates2){
+                    count4++;
+                    if(d == document.getElementById("stime").value){
+                        var num2 = count4;
+                    }
+                 }
+                  if(number_data[0][num][0][num2].length > 0){
+                        number_data[0][num][0][num2].splice(0,1);
+                        number_data[0][num][0][num2].push(document.getElementById("snumber").value);
+                    }else{
+                        number_data[0][num][0][num2].push(document.getElementById("snumber").value);
+                    }
+                }   
+        }
+    }
+    datas_write2();
+}
+function ad(text){
+    console.log(number_data)
+    var t = text.substring(1,2);
+    var n = text.substring(2,)-1;
+    var d = document.getElementById("u2d").innerHTML;
+    d = d.substring(0,d.indexOf("日"));
+    if(n == 0){
+        n = "募集なし"
+    }else{
+        n = n+"人";
+    }
+    console.log(number_data[0][d][0][t]);
+    console.log(number_data[0][d][0][t]);
+    if(number_data[0][d][0][t].length == 0){
+    number_data[0][d][0][t].push(n);
+    }else{
+        number_data[0][d][0][t].splice(0,1);
+        number_data[0][d][0][t].push(n);
+    }
+    t = "stt"+t;
+    document.getElementById(t).innerHTML = n;
+}
+var count_add = 0;
+function clos2(){
+    document.getElementById("ca").style.display = "block";
+    document.getElementById("ca").style.opacity = "1";
+document.getElementById("u2").style.display = "none";
+document.getElementById("u2").style.opacity = "0";
+datas_write2();
+}
+function pup2(num){
+    var text = '';
+    
+    count++;
+    document.getElementById("ca").style.display = "none";
+    document.getElementById("ca").style.opacity = "0";
+    document.getElementById("u2").style.display = "block";
+    document.getElementById("u2").style.opacity = "1";
+    document.getElementById("u2d").innerHTML = num+"日";
+    day = num;
+    for(var i = 1; i<=3; i++){
+        var text = "stt"+i;
+        if(number_data[0][num][0][i].length > 0){
+        document.getElementById(text).innerHTML = number_data[0][num][0][i];//
+        }else{
+            document.getElementById(text).innerHTML = "未決定";
+        }
+    }
+}
+function datas_write2(){
+        for(var b = 1; b<=3*31; b++){
+            try{
+            document.getElementById("dd").remove();
+            }catch(e){
+
+            }
+        }
+        var days = ["朝勤務","昼勤務","夜勤務"];
+    for(var i = 1; i <= after_last_date; i++){
+        var text = "d"+i;
+            for(var a = 1; a<=3; a++){
+            if(number_data[0][i][0][a].length > 0){
+            var text2 = '<p class="dd"id="dd">'+days[a-1]+" : "+number_data[0][i][0][a]+'</p>';
+            }else{
+            var text2 = '<p class="dd" id="dd">'+days[a-1]+' : 未決定</p>';
+            }
+            document.getElementById(text).insertAdjacentHTML("beforeend",text2);
+            }
+    }
+    console.log("count2:"+count2);
+}
+
+function sub2(){
+    var url2 = url+"?branch=number_set";
+    var params = {
+        "method":"post",
+        "mode":"no-cors",
+        "Content-Type":"application/json",
+        "body":JSON.stringify(number_data)
+    }
+    fetch(url2,params);
+    alert("送信しました");
+    document.getElementById("blocks").remove();
+    var text = '<div id="blocks"></div>';
+    document.getElementById("ca").insertAdjacentHTML("beforeend",text);
+    document.getElementById("bar").style.paddingLeft = "15vw";
+    document.getElementById("ca").style.marginLeft = "15vw";
 }
