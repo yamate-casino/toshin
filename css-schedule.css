@@ -271,6 +271,9 @@ p{
 .pw{
     border-bottom:1px solid black;
 }
+.p2{
+    color: lightgrey;
+}
 .pw:hover{
     font-weight: 600;;
 }
@@ -295,6 +298,7 @@ p{
     padding:0;
     background-color: black;
     color:white;
+    vertical-align: top;
 }
 .su1 .su_block1 .su_time{
     font-size:20px;
@@ -309,6 +313,18 @@ p{
     padding-bottom:10px;
     border-bottom: 1px solid white;
 }
+.su1 .su_block1 .namess{
+    margin-left:10px;
+    margin-right:10px;
+    padding-bottom:10px;
+    border:none;
+}
+.su1 .su_block1 .namess p{
+    display: inline-block;
+    padding:10px;
+    border:none;
+    font-weight: 600;
+}
 .su1 .su_block1 small{
     
     margin-left:20px;
@@ -318,6 +334,7 @@ p{
     padding:10px;
     color:white;
     border:none;
+    font-weight: 600;
 }
 .su1 .su_block2{
     display: inline-block;
@@ -331,4 +348,79 @@ p{
 .su1 .su_block2 .names p{
     display: inline-block;
     padding:10px;
+}
+.start_check{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 1000;
+}
+.start_check2{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    line-height: 100vh;
+    text-align:center;
+    color:white;
+    font-weight:600;
+    z-index:2000;
+}
+.pw{
+    width:fit-content;
+    padding:10px;
+    font-size:10px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    margin:10px;
+}
+.pw:hover{
+    background-color: white;
+    color:black;
+}
+.y{
+    margin-top:5vh;
+}
+.y p{
+    display: inline-block;
+    font-weight:600;
+    margin: 1vw;
+}
+.y .y_t{
+    display: block;
+    font-size:10px;
+    background-color: black;
+    color:white;
+    width:7.5vw;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+.fix{
+    display: block;
+    font-size:10px;
+    background-color: black;
+    color:white;
+    width:7.5vw;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+.fix:hover{
+    background-color: white;
+    color:black;
 }
