@@ -182,9 +182,13 @@ function pup(num){
         document.getElementById("ca").style.display = "none";
     document.getElementById("ca").style.opacity = "0";
     document.getElementById("u").style.display = "block";
-    document.getElementById("u").style.opacity = "1";
+    document.getElementById("u").style.opacity = "0";
     document.getElementById("ud").innerHTML = num+"日";
     day = num;
+$(".u").animate({
+ "opacity":1
+},100);
+
     
     if(count == 1 || pre_num == 0){
 
@@ -214,16 +218,20 @@ function pup(num){
 
 var count_add = 0;
 function clos(){
-    document.getElementById("ca").style.display = "block";
+$(".u").animate({
+ "opacity":0
+},100);
+  setTimeout(()=>{
+document.getElementById("ca").style.display = "block";
     document.getElementById("ca").style.opacity = "1";
 document.getElementById("u").style.display = "none";
-document.getElementById("u").style.opacity = "0";
 for(var i = 1; i <= count_add; i++){
     document.getElementById("s1").remove();
 }
 count_add = 0;
 count3 = 0;
 datas_write();
+},105);
 }
 
 function add2(num){
