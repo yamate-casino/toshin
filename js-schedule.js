@@ -5,6 +5,13 @@ document.getElementById("add1").onclick = add;
 document.getElementById("sub").onclick = sub;
 var url = "https://script.google.com/macros/s/AKfycbx0xGKdu9XNdBmaQV9S1kUGB44f6boIPswobzhvHawe6ahkRSWJkoSwhW1cspUOh1o/exec";
 var username = "";
+if(document.body.offsetWidth > 2000){
+var text ='<link rel="stylesheet" href="css-schedule.css">';
+}else{
+var text = '<link rel="stylesheet" href="css-schedule2.css">';
+}
+document.getElementById("css_select").insertAdjacentHTML("beforeend",text);
+
 try{
 var params = new URLSearchParams(document.location.search);
 username  = params.get("username");
@@ -35,6 +42,7 @@ if(first_day == 0){
 //first_day = 1;
 
 document.getElementById("month").innerHTML = month+"月";
+document.getElementById("month").style.fontSize = "25px";
 
 if(first_day == 1){
 
@@ -293,7 +301,8 @@ function daw(){
 //<div class="b1" onclick="pup(1)"><p class="date" id="date">1</p><div class="d" id="d1"></div></div><div class="b1" onclick="pup(2)"><p class="date" id="date">2</p><div class="d" id="d2"></div></div><div class="b1" onclick="pup(3)"><p class="date" id="date">3</p><div class="d" id="d3"></div></div><div class="b1" onclick="pup(4)"><p class="date" id="date">4</p><div class="d" id="d4"></div></div><div class="b1" onclick="pup(5)"><p class="date" id="date">5</p><div class="d" id="d5"></div></div><div class="b1" onclick="pup(6)"><p class="date" id="date">6</p><div class="d" id="d6"></div></div><div class="b1" onclick="pup(7)"><p class="date" id="date">7</p><div class="d" id="d7"></div></div><div class="b1" onclick="pup(8)"><p class="date" id="date">8</p><div class="d" id="d8"></div></div><div class="b1" onclick="pup(9)"><p class="date" id="date">9</p><div class="d" id="d9"></div></div><div class="b1" onclick="pup(10)"><p class="date" id="date">10</p><div class="d" id="d10"></div></div><div class="b1" onclick="pup(11)"><p class="date" id="date">11</p><div class="d" id="d11"></div></div><div class="b1" onclick="pup(12)"><p class="date" id="date">12</p><div class="d" id="d12"></div></div><div class="b1" onclick="pup(13)"><p class="date" id="date">13</p><div class="d" id="d13"></div></div><div class="b1" onclick="pup(14)"><p class="date" id="date">14</p><div class="d" id="d14"></div></div><div class="b1" onclick="pup(15)"><p class="date" id="date">15</p><div class="d" id="d15"></div></div><div class="b1" onclick="pup(16)"><p class="date" id="date">16</p><div class="d" id="d16"></div></div><div class="b1" onclick="pup(17)"><p class="date" id="date">17</p><div class="d" id="d17"></div></div><div class="b1" onclick="pup(18)"><p class="date" id="date">18</p><div class="d" id="d18"></div></div><div class="b1" onclick="pup(19)"><p class="date" id="date">19</p><div class="d" id="d19"></div></div><div class="b1" onclick="pup(20)"><p class="date" id="date">20</p><div class="d" id="d20"></div></div><div class="b1" onclick="pup(21)"><p class="date" id="date">21</p><div class="d" id="d21"></div></div><div class="b1" onclick="pup(22)"><p class="date" id="date">22</p><div class="d" id="d22"></div></div><div class="b1" onclick="pup(23)"><p class="date" id="date">23</p><div class="d" id="d23"></div></div><div class="b1" onclick="pup(24)"><p class="date" id="date">24</p><div class="d" id="d24"></div></div><div class="b1" onclick="pup(25)"><p class="date" id="date">25</p><div class="d" id="d25"></div></div><div class="b1" onclick="pup(26)"><p class="date" id="date">26</p><div class="d" id="d26"></div></div><div class="b1" onclick="pup(27)"><p class="date" id="date">27</p><div class="d" id="d27"></div></div><div class="b1" onclick="pup(28)"><p class="date" id="date">28</p><div class="d" id="d28"></div></div><div class="b1" onclick="pup(29)"><p class="date" id="date">29</p><div class="d" id="d29"></div></div><div class="b1" onclick="pup(30)"><p class="date" id="date">30</p><div class="d" id="d30"></div></div><div class="b1" onclick="pup(31)"><p class="date" id="date">31</p><div class="d" id="d31"></div></div>
 
 function sub(){
-    console.log(JSON.stringify(datas));
+  document.getElementById("sub").innerHTML = "送信中"
+console.log(JSON.stringify(datas));
     var params = {
         "method":"post",
         "mode":"no-cors",
@@ -306,7 +315,11 @@ function sub(){
         console.log(res);
         if(res.ok){
             console.log("success");
-        }
+alert("登録が完了しました\n(登録されているメールアドレスにも通知されます)")
+
+        }else{
+alert("シフト送信中にエラーが発生しました\n詳しくは管理者まで問い合わせてください")
+}
     })
 }
 document.getElementById("w").onclick = w;

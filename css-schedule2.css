@@ -381,8 +381,8 @@ vertical-align:middle;
     background-color: black;
     opacity: 0.6;
     z-index: 1000;
-    /*display: block;*/
-    display:none;
+    display: block;
+    /*display:none;*/
 }
 .start_check2{
     position: absolute;
