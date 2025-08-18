@@ -1,0 +1,640 @@
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+}
+h1{
+    margin:0;
+    padding:0;
+    font-size:50px;
+    width:fit-content;
+}
+h4{
+position: absolute;
+right:0;
+top:0;
+color: gray;
+}
+p{
+    margin:0;
+    padding: 0;
+}
+.top{
+    margin-left:10vw;
+    position: relative;
+    margin-top:5vh;
+    width:80vw;
+    border-bottom:1px solid black;
+font-size:50px;
+}
+.bar{
+    position: relative;
+    width:97.5vw;
+    padding-left:1.25vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+}
+.bar p{
+    width: 20vw;
+    height:60px;
+    line-height: 60px;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: black;
+    font-size:30px;
+    color:white;
+    text-align: center;
+}
+.bar select{
+    height: 60px;
+    font-size:30px;
+    width:15vw;
+}
+.bar input{
+    padding:0;
+    height:60px;
+    width:10vw;
+    border:none;    
+    font-size:30px;
+}
+.bar .add1{
+    width:10vw;
+    text-align: center;
+}
+.bar .add1:hover{
+    background-color: lightgray;
+}
+.bar .add1:active{
+    background-color: black;
+}
+.ca{
+    margin-left:1.25vw ;
+    width: 97.5vw;
+    height:fit-content;
+    /*background-color: lightgray;*/
+    
+}
+.ca .b1{
+    position: relative;
+    width:13.4vw;
+    height:300px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left:2.5px;
+    margin-right:2.5px;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    border-bottom:1px solid black;
+    font-size:40px;
+       /* background-color: lightcyan;*/
+}
+.ca .b1:hover{
+    background-color: rgb(245, 245, 245);
+    box-shadow: 0 0 5px 2px rgb(245, 245, 245);
+}
+.ca .b1 .d{
+    position: absolute;
+    top:65px;
+    left:10px;  
+    font-size:25px;
+    font-weight:600;
+}
+.ca .date{
+    position: absolute;
+    top:10px;
+    left:10px;
+}
+.ca .date2{
+    color:lightgray;
+}
+.b p{
+    width:13.4vw;
+    font-size:40px;
+    text-align: center;
+    display: inline-block;
+    font-weight: 600;
+    background-color: lightgray;
+}
+.u{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    opacity: 0;
+}
+.u .shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color: black;
+    opacity: 0.6;
+}
+.u .center{
+    position: absolute;
+    left: 5vw;
+    top:25vh;
+    width:90vw;
+    height:50vh;
+     box-shadow: 0 0 5px 1px gray;
+    background-color: rgb(253, 253, 253);
+    z-index: 100;
+    vertical-align: top;
+    display: inline-block;
+}
+.u .ud{
+    position: relative;
+    left:5vw;
+    top:5vh;
+    font-size: 50px;
+    font-weight: 600;
+    z-index: 100;
+}
+.u .left{
+    position: relative;
+    left:2.5vw;
+    top:10vh;
+    width:45vw;
+    height:40vh;
+}
+
+.u .left .s1{
+    position: relative;
+    top:5vh;
+    left:0;
+    margin:0;
+    padding: 0;
+    padding: 2vw;
+    padding-left:2vw;
+    padding-right:12vw;
+    background-color: rgb(243, 243, 243);
+    width: max-content;
+    text-align: center;
+    font-size:30px;
+}
+
+.u .left .s1 button{
+    position: absolute;
+    bottom:2.5px;
+    right:0;
+    font-size:30px;
+    padding-bottom: 2vw;
+    padding-top:2vw;
+    padding-right:2vw;
+    padding-left:2vw;
+    border:none;   
+     outline:none;
+     background-color: rgb(243, 243, 243);
+}
+.u .left button:hover{
+    font-weight: 600;
+}
+.u .right{
+    position: relative;
+    left:50%;
+    top:-30vh;
+    width: 40vw;
+    height:40vh;
+}
+.u .right p{
+    display: inline-block;
+    position: relative;
+    top:0;
+    width:max-content;
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-top:1.25vh;
+    padding-bottom:1.25vh;
+    margin:0.5vw;
+   margin-top:2.5vh;
+    font-size:30px;
+    /*border-bottom:1px solid black;*/
+}
+.u .right p:hover{
+    background-color: lightgray;
+}
+.u .right input{
+    position: relative;
+    top:0.5vh;
+    font-size:20px;
+    width:12.5vw;
+    vertical-align:middle;
+}
+.u .right .o{
+    border:none;
+    font-size:27.5px;
+vertical-align:middle;
+}
+.u .right .o:hover{
+    background-color:white;
+}
+.u .right .a{
+    padding-left:2.5vw;
+    padding-right:2.5vw;
+   font-size:27.5px;
+    vertical-align:middle;
+}
+.u small{
+    background-color: black;
+    color:white;
+    padding-left:5vw ;
+    padding-right:5vw ;
+    padding-top:2vh;
+    padding-bottom:2vh;
+    letter-spacing: 2px;
+    font-size:30px;
+}
+.u .d2{
+    
+    width: fit-content;
+    border-top:1px solid black;
+    font-size:20px;
+}
+.u .center .close{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    padding-left:5vw;
+    padding-right:5vw;
+    padding-top:2.5vh;
+    padding-bottom:2.5vh;
+    font-size:30px;
+}
+.u .center .close:hover{
+ background-color: black;
+ color:white;
+}
+.u .center .close:active{
+ background-color: white;
+ color:black;
+}
+.sub{
+    padding-left:5vw;
+    padding-right:5vw;
+    padding-top:2.5vh;
+    padding-bottom:2.5vh;
+    font-size:30px;
+    width:fit-content;
+    background-color:black;
+    color:white;
+}
+.sub:hover{
+    background-color: lightgray;
+}
+.sub:active{
+    background-color: black;
+}
+.pw{
+    border-bottom:1px solid black;
+}
+.p2{
+    color: lightgrey;
+}
+.pw:hover{
+    font-weight: 600;;
+}
+
+.su1{
+    width:92vw;
+    height:max-content;
+    margin:0;
+    padding:0;
+    margin-left:-10vw;
+}
+.su1 .su_d{
+    font-size:30px;
+    font-weight:600;
+    margin:0;
+    padding:0;
+}
+.su1 .su_block1{
+    display: inline-block;
+    width:30vw;
+    margin:0;
+    padding:0;
+    background-color: black;
+    color:white;
+    vertical-align: top;
+}
+.su1 .su_block1 .su_time{
+    font-size:20px;
+    font-weight: 600;
+        margin:0;
+    padding:0;
+    padding:10px;
+}
+.su1 .su_block1 .names{
+    margin-left:10px;
+    margin-right:10px;
+    padding-bottom:10px;
+    border-bottom: 1px solid white;
+}
+.su1 .su_block1 .namess{
+    margin-left:10px;
+    margin-right:10px;
+    padding-bottom:10px;
+    border:none;
+}
+.su1 .su_block1 .namess p{
+    display: inline-block;
+    padding:10px;
+    border:none;
+    font-weight: 600;
+}
+.su1 .su_block1 small{
+    
+    margin-left:20px;
+}
+.su1 .su_block1 .names p{
+    display: inline-block;
+    padding:10px;
+    color:white;
+    border:none;
+    font-weight: 600;
+}
+.su1 .su_block2{
+    display: inline-block;
+    background-color: white;
+    color:black;
+}
+.su1 .su_block2 .su_time{
+    font-size:20px;
+    font-weight: 600;
+}
+.su1 .su_block2 .names p{
+    display: inline-block;
+    padding:10px;
+}
+.start_check{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    background-color: black;
+    opacity: 0.6;
+    z-index: 1000;
+    /*display: block;*/
+    display:none;
+}
+.start_check2{
+    position: absolute;
+    top:0;
+    left: 0;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    line-height: 100vh;
+    text-align:center;
+    color:white;
+    font-weight:600;
+    z-index:2000;
+}
+.pw{
+    width:fit-content;
+    padding:10px;
+    font-size:10px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    margin:10px;
+}
+.pw:hover{
+    background-color: white;
+    color:black;
+}
+.y{
+    margin-top:5vh;
+}
+.y p{
+    display: inline-block;
+    font-weight:600;
+    margin: 1vw;
+}
+.y .y_t{
+    display: block;
+    font-size:10px;
+    background-color: black;
+    color:white;
+    width:7.5vw;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+.fix{
+    display: block;
+    font-size:10px;
+    background-color: black;
+    color:white;
+    width:7.5vw;
+    height:30px;
+    line-height:30px;
+    text-align:center;
+    padding-left:2vw;
+    padding-right:2vw;
+}
+.fix:hover{
+    background-color: white;
+    color:black;
+}
+
+
+
+.u2{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+.u2 .shadow{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height:100vh;
+    background-color: black;
+    opacity: 0.6;
+}
+.u2 .center{
+    position: absolute;
+    left: 10vw;
+    top:10vh;
+    width:80vw;
+    height:80vh;
+     box-shadow: 0 0 5px 1px gray;
+    background-color: rgb(253, 253, 253);
+    z-index: 100;
+    vertical-align: top;
+    display: inline-block;
+}
+.u2 .u2d{
+    position: relative;
+    left:5vw;
+    top:5vh;
+    font-size: 40px;
+    font-weight: 600;
+    
+    z-index: 100;
+}
+.u2 .left{
+    position: relative;
+    left:2.5vw;
+    top:10vh;
+    width:40vw;
+    height:60vh;
+}
+
+.u2 .left .s1{
+    position: relative;
+    top:5vh;
+    left:0;
+    margin:0;
+    padding: 0;
+    padding: 2vw;
+    padding-left:4vw;
+    padding-right:6vw;
+    background-color: rgb(243, 243, 243);
+    width: max-content;
+    text-align: center;
+    font-size:15px;
+}
+.u2 .left .s1 button{
+    position: absolute;
+    bottom:2.5px;
+    right:0;
+    font-size:10px;
+    padding-bottom: 2vw;
+    padding-top:2vw;
+    border:none;   
+     outline:none;
+     background-color: rgb(243, 243, 243);
+}
+.u2 .left button:hover{
+    font-weight: 600;
+}
+.u2 .right{
+    position: relative;
+    left:50%;
+    top:-50vh;
+    width: 40vw;
+    height:60vh;
+}
+.u2 .right .d1{
+    position: relative;
+    top:5vh;
+    vertical-align: top;
+}
+.u2 .right div{
+    margin-top:1vh;
+    margin-bottom: 1vh;
+}
+.u2 .right .d1 div small{
+    margin: 0;
+    padding:0;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size:10px;
+    vertical-align:middle;
+}
+.u2 .right p{
+    display: inline-block;
+    width:max-content;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size:10px;
+    vertical-align: middle;
+    /*border-bottom:1px solid black;*/
+}
+.u2 .right p:hover{
+    background-color: lightgray;
+}
+.u2 .right input{
+    position: relative;
+    top:0.5vh;
+}
+.u2 .right .o{
+    border:none;
+}
+.u2 .right .o:hover{
+    background-color:white;
+}
+.u2 .right .a{
+    padding-left:2.5vw;
+    padding-right:2.5vw;
+    
+}
+.u2 small{
+    background-color: black;
+    color:white;
+    padding-left:5vw ;
+    padding-right:5vw ;
+    padding-top:2.5vh;
+    padding-bottom:2.5vh;
+    letter-spacing: 2px;
+}
+.u2 .left .s{
+    height: 10vh;
+}
+.u2 .left .s p{
+    position: relative;
+    left:5vw;
+    top:1vh;
+    font-weight:600;
+    text-align: center;
+}
+.u2 .left .block{
+    position: absolute;
+    top:7.5vh;
+    left:2.5vw;
+}
+.u2 .left .s small{
+ padding:0;
+ margin:0;
+ width:fit-content;
+ text-align: center;
+ display: block;
+ background-color: white;
+ color:black;
+ font-weight: 600;
+}
+.u2 .d2{
+    
+    width: max-content;
+    border-top:1px solid black;
+}
+.u2 .center .close{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    padding-left:1vw;
+    padding-right:1vw;
+    padding-top:1vw;
+    padding-bottom:1vw;
+}
+.u2 .center .close:hover{
+ background-color: black;
+ color:white;
+}
+.u2 .center .close:active{
+ background-color: white;
+ color:black;
+}
+.dd{
+    font-size:11px;
+}
